@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <b style="margin-left: 1rem; margin-right: 1rem; font-size: 5em">Animal Shelter API</b>
+  # Guestly
 </p>
 
 <p align="center">

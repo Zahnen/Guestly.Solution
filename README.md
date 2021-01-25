@@ -18,15 +18,44 @@
 
 
 
+## MVP User Stories?
+### Have a queryable database of guests with full CRUD funcationality.
+
+1. As a hotel employee, I need to be able to see a list of all guests that have stayed at my hotel.
+
+2. As a hotel employee, I need to be able to see a record of which rooms a guest has stayed in. (I.E. Sarah Johnson stayed in room 207, room 319, and room 500.)
+
+3. As a hotel employee, I need to be able to track the revenue earned from an individual guest.
+
+4. As a hotel employee, I need to be able to search/query my list of guests in order to search by revenue earned, most nights stayed, etc.
+
+5. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info can be viewed.
+
+
+## Stretch Goals?
+
+1. As a hotel employee, I would like to be able to see a details page for hotel rooms and properties (to include a list of guests that have stayed in them).
+
+2. As a hotel employee, I would like if revenue tracking was presented in an easy-to-digest interface (charts, graphs, etc).
+
+3. Search Bar
+
+4. User Roles - Admin can message application users. [define more roles?] harcode user roles?
+
+5. JS front end - adding interactivity with nav bar, etc. 
+
+6. Handle Identity Errors 
+
+
 # 🧑‍💻 Contributers
 
 | Name | GitHub Profile |
 |------|----------------|
 |[Ben McFarland](https://www.linkedin.com/in/benjamin-mcf/)|[Harzulu](https://github.com/harzulu)|
-| | |
-| | |
-| | |
-| | |
+|[Kaila Sprague McRae](https://www.linkedin.com/in/kaila-sprague-mcrae/)|[kaila-spraguemcrae](https://github.com/kaila-spraguemcrae)|
+| [Max Brockbank]() | []() |
+| [Zahnen Garner]() | []() |
+| [Taylor Delph](https://www.linkedin.com/in/taylordelph/) | [Taylulz](https://github.com/taylulz) |
 
 # ⚙️ Technologies Used
 
@@ -109,17 +138,20 @@ Once you have the file made, put in this code: <br>
 # ☎️ Support / Contact Details
 
 * Ben McFarland benrmcfarland@gmail.com
-*
-*
-*
-*
+* Kaila Sprague McRae
+* Max Brockbank
+* Zahnen Garner
+* Taylor Delph
 
 # 🪲 Bugs / Issues
 
-No known bugs or issues
+| Date | Error | Handled | Solution |
+| :------------- | :------------- | :------------- | :------------- |
+| 01.15.2021 | no known bugs at this time | |  |
+
 
 # ©️ License & Copyright
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2021 *_Ben McFarland, , , , _*
+Copyright (c) 2021 *_Ben McFarland, Kaila Sprague McRae, Max Brockbank, Zahnen Garner, Taylor Delph_*

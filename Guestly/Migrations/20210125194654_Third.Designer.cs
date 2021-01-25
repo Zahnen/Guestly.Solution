@@ -3,14 +3,16 @@ using System;
 using Guestly.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Guestly.Migrations
 {
     [DbContext(typeof(GuestlyContext))]
-    partial class GuestlyContextModelSnapshot : ModelSnapshot
+    [Migration("20210125194654_Third")]
+    partial class Third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -709,43 +711,6 @@ namespace Guestly.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("GuestRoom");
-
-                    b.HasData(
-                        new
-                        {
-                            GuestRoomId = 1,
-                            GuestId = 1,
-                            Nights = 2,
-                            RoomId = 1
-                        },
-                        new
-                        {
-                            GuestRoomId = 2,
-                            GuestId = 2,
-                            Nights = 1,
-                            RoomId = 2
-                        },
-                        new
-                        {
-                            GuestRoomId = 3,
-                            GuestId = 5,
-                            Nights = 4,
-                            RoomId = 3
-                        },
-                        new
-                        {
-                            GuestRoomId = 4,
-                            GuestId = 10,
-                            Nights = 5,
-                            RoomId = 4
-                        },
-                        new
-                        {
-                            GuestRoomId = 5,
-                            GuestId = 1,
-                            Nights = 3,
-                            RoomId = 4
-                        });
                 });
 
             modelBuilder.Entity("Guestly.Models.Room", b =>

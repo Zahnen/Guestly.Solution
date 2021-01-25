@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Guestly.Models
 {
@@ -13,8 +14,8 @@ namespace Guestly.Models
     public int RoomId { get; set; }
     public string RoomNumber { get; set; }
     public string RoomType { get; set; }
+    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
     public float Price { get; set; }
-    public virtual ApplicationUser User { get; set; }
     public ICollection <GuestRoom> Guests { get; set; }
   }
 }

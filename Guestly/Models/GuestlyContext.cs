@@ -80,6 +80,22 @@ namespace Guestly.Models
           new Guest {GuestId = 59, FirstName = "Satan", LastName= "Lucifer", Email= "TheDevil@email.com", PhoneNumber= "6666666666"},
           new Guest {GuestId = 60, FirstName = "Jenny", LastName= "Jenny", Email= "TheJenny@email.com", PhoneNumber= "2018675309"}
         );
+      builder.Entity<Room>()
+        .HasData(
+          new Room {RoomId = 1, RoomNumber = "104", RoomType = "King", Price = 125.00f },
+          new Room {RoomId = 2, RoomNumber = "345", RoomType = "Queen", Price = 110.00f },
+          new Room {RoomId = 3, RoomNumber = "210", RoomType = "Baby", Price = 85.00f },
+          new Room {RoomId = 4, RoomNumber = "111", RoomType = "Suite", Price = 150.00f },
+          new Room {RoomId = 5, RoomNumber = "206", RoomType = "Full", Price = 95.00f }
+        );
+      builder.Entity<GuestRoom>()
+        .HasData(
+          new GuestRoom {GuestRoomId = 1, GuestId = 1, RoomId = 1, Nights = 2},
+          new GuestRoom {GuestRoomId = 2, GuestId = 2, RoomId = 2, Nights = 1},
+          new GuestRoom {GuestRoomId = 3, GuestId = 5, RoomId = 3, Nights = 4},
+          new GuestRoom {GuestRoomId = 4, GuestId = 10, RoomId = 4, Nights = 5},
+          new GuestRoom {GuestRoomId = 5, GuestId = 1, RoomId = 4, Nights = 3}
+        );        
     }
   }
 }

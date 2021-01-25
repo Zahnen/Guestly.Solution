@@ -6,7 +6,19 @@
 <p align="center">
     <br>
     <a href="https://github.com/Harzulu">
-        <img src="https://avatars3.githubusercontent.com/u/55816973?s=460&u=46b7375105009121ce5ce53643553fef0ba2be14&v=4" width="200px" height="auto">
+        <img src="https://avatars3.githubusercontent.com/u/55816973?s=460&u=46b7375105009121ce5ce53643553fef0ba2be14&v=4" width="150px" height="auto">
+    </a>
+    <a href="https://github.com/MaxBrockbank">
+        <img src="https://avatars.githubusercontent.com/u/48340492?s=460&u=e571605c1709842339fc6510ae69ec0344bb4477&v=4" width="150px" height="auto">
+    </a>
+    <a href="https://github.com/taylulz">
+        <img src="https://avatars.githubusercontent.com/u/61722743?s=460&u=b68a72f8aea84f3239a7efa745ee117631511fa0&v=4" width="150px" height="auto">
+    </a>
+    <a href="https://github.com/Zahnen">
+        <img src="https://avatars.githubusercontent.com/u/30666043?s=460&v=4" width="150px" height="auto">
+    </a>
+    <a href="https://github.com/kaila-spraguemcrae">
+        <img src="https://avatars.githubusercontent.com/u/68969136?s=400&u=9656844bce97d3dc960e4012bcacc5458645885e&v=4" width="150px" height="auto">
     </a>
 </p>
 
@@ -51,10 +63,10 @@
 
 | Name | GitHub Profile |
 |------|----------------|
-|[Ben McFarland](https://www.linkedin.com/in/benjamin-mcf/)|[Harzulu](https://github.com/harzulu)|
-|[Kaila Sprague McRae](https://www.linkedin.com/in/kaila-sprague-mcrae/)|[kaila-spraguemcrae](https://github.com/kaila-spraguemcrae)|
-| [Max Brockbank]() | []() |
-| [Zahnen Garner]() | []() |
+| [Ben McFarland](https://www.linkedin.com/in/benjamin-mcf/) | [Harzulu](https://github.com/harzulu)|
+| [Kaila Sprague McRae](https://www.linkedin.com/in/kaila-sprague-mcrae/) | [kaila-spraguemcrae](https://github.com/kaila-spraguemcrae) |
+| [Max Brockbank]() | [MaxBrockbank](https://github.com/MaxBrockbank) |
+| [Zahnen Garner]() | [Zahnen](https://github.com/Zahnen) |
 | [Taylor Delph](https://www.linkedin.com/in/taylordelph/) | [Taylulz](https://github.com/taylulz) |
 
 # ⚙️ Technologies Used
@@ -72,8 +84,6 @@
 * <a href="https://getbootstrap.com/">Bootstrap</a>
 * <a href="https://docs.microsoft.com/en-us/ef/core/">EF Core</a>
 * <a href="https://www.mysql.com/">MySQL/My SQL Workbench</a>
-* <a href="postman.com">Postman</a>
-* <a href="https://swagger.io/tools/swagger-ui/">Swagger/Swagbuckle</a>
 
 </details>
 
@@ -147,7 +157,8 @@ Once you have the file made, put in this code: <br>
 
 | Date | Error | Handled | Solution |
 | :------------- | :------------- | :------------- | :------------- |
-| 01.15.2021 | no known bugs at this time | | ` |
+| 01.25.2021 | "The entity type 'IdentityUserLogin<string>' requires a primary key to be defined." | true | add `base.OnModelCreating(builder)` to GuestlyContext.cs |
+| 01.25.2021 | "error CS0664: Literal of type double cannot be implicitly converted to type 'float'; use an 'F' suffix to create a literal of this type" | true | add "f" to float data, ie: `125.00f`|
 
 
 # ©️ License & Copyright

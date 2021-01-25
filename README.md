@@ -1,7 +1,4 @@
-<br>
-<p align="center">
-  # Guestly
-</p>
+# <div align="center">Guestly</div>
 
 <p align="center">
     <br>

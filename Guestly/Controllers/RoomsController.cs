@@ -27,7 +27,7 @@ namespace Guestly.Controllers
       List<Room> model = _db.Rooms.ToList();
       return View(model);
     }
-    [Authorize]
+    //[Authorize]
     public ActionResult Create()
     {
       return View();
@@ -50,7 +50,7 @@ namespace Guestly.Controllers
       return View(thisRoom);
     }
 
-    [Authorize]
+    //[Authorize]
     public ActionResult Edit(int id)
     {
       var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == id);
@@ -88,7 +88,7 @@ namespace Guestly.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    //[Authorize]
     public ActionResult Delete(int id)
     {
       var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == id);

@@ -147,7 +147,7 @@ Once you have the file made, put in this code: <br>
 
 | Date | Error | Handled | Solution |
 | :------------- | :------------- | :------------- | :------------- |
-| 01.15.2021 | no known bugs at this time | |  |
+| 01.15.2021 | no known bugs at this time | | ` |
 
 
 # ©️ License & Copyright

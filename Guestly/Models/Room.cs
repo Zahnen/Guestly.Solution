@@ -14,6 +14,7 @@ namespace Guestly.Models
     public string RoomNumber { get; set; }
     public string RoomType { get; set; }
     public float Price { get; set; }
+    public virtual ApplicationUser User { get; set; }
     public ICollection <GuestRoom> Guests { get; set; }
   }
 }

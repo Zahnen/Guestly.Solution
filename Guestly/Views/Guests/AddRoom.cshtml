@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Guestly.Models.Guest
+
+<h1>Record a new Guest Stay</h1>
+<hr>
+<h3>What room did this guest stay in?</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.GuestId)
+  @Html.HiddenFor(model => model.FirstName)
+  @Html.HiddenFor(model => model.LastName)
+  @Html.HiddenFor(model => model.PhoneNumber)
+  @Html.HiddenFor(model => model.Email)
+  @Html.HiddenFor(model => model.LifetimeNights)
+  @Html.HiddenFor(model => model.LifetimeRevenue)
+
+  @Html.Label("Select the room number:")
+  @Html.DropDownList("RoomId")
+
+  @Html.Label("How many nights is this guest staying?")
+  @Html.TextBox("newNights")
+
+  <input type="submit" value="Save" />
+}

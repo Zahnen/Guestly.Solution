@@ -3,14 +3,16 @@ using System;
 using Guestly.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Guestly.Migrations
 {
     [DbContext(typeof(GuestlyContext))]
-    partial class GuestlyContextModelSnapshot : ModelSnapshot
+    [Migration("20210126175934_TestSeed")]
+    partial class TestSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,8 +107,8 @@ namespace Guestly.Migrations
                             Email = "thisisdrew@email.com",
                             FirstName = "Drew",
                             LastName = "Mason",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 220f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5673451231"
                         },
                         new
@@ -115,8 +117,8 @@ namespace Guestly.Migrations
                             Email = "matthewpatel@email.com",
                             FirstName = "Matthew",
                             LastName = "Patel",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 340f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "192837465"
                         },
                         new
@@ -125,8 +127,8 @@ namespace Guestly.Migrations
                             Email = "sethdoray@email.com",
                             FirstName = "Seth",
                             LastName = "Doray",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 750f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5033505003"
                         },
                         new
@@ -135,8 +137,8 @@ namespace Guestly.Migrations
                             Email = "doublerich@email.com",
                             FirstName = "Richard",
                             LastName = "Richardson",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 450f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "9717717771"
                         },
                         new
@@ -145,8 +147,8 @@ namespace Guestly.Migrations
                             Email = "cal3b3dwards@email.com",
                             FirstName = "Caleb",
                             LastName = "Edwards",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 190f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2736498710"
                         },
                         new
@@ -155,8 +157,8 @@ namespace Guestly.Migrations
                             Email = "volleyballrox@email.com",
                             FirstName = "Shoyo",
                             LastName = "Hinita",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 85f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1133224433"
                         },
                         new
@@ -165,8 +167,8 @@ namespace Guestly.Migrations
                             Email = "rileykeys@email.com",
                             FirstName = "Riley",
                             LastName = "Keys",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 340f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4252075079"
                         },
                         new
@@ -175,8 +177,8 @@ namespace Guestly.Migrations
                             Email = "heyyouparkit@email.com",
                             FirstName = "Parker",
                             LastName = "Wallenburger",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 475f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5555599999"
                         },
                         new
@@ -185,8 +187,8 @@ namespace Guestly.Migrations
                             Email = "mydognigel@email.com",
                             FirstName = "Nigel",
                             LastName = "Dogo",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 450f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "3333333333"
                         },
                         new
@@ -195,8 +197,8 @@ namespace Guestly.Migrations
                             Email = "rickiede@email.com",
                             FirstName = "Rick",
                             LastName = "Ellis",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 250f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4155558956"
                         },
                         new
@@ -205,8 +207,8 @@ namespace Guestly.Migrations
                             Email = "acathome@email.com",
                             FirstName = "Alex",
                             LastName = "Calder",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 95f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5065558989"
                         },
                         new
@@ -215,8 +217,8 @@ namespace Guestly.Migrations
                             Email = "elbell@email.com",
                             FirstName = "Erica",
                             LastName = "Bell",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 440f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "9715558562"
                         },
                         new
@@ -225,8 +227,8 @@ namespace Guestly.Migrations
                             Email = "denicolab@email.com",
                             FirstName = "Bobby",
                             LastName = "DeNicola",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 550f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "7075559846"
                         },
                         new
@@ -235,8 +237,8 @@ namespace Guestly.Migrations
                             Email = "emmunoz@email.com",
                             FirstName = "Ellie",
                             LastName = "Munoz",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 255f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5035556231"
                         },
                         new
@@ -245,8 +247,8 @@ namespace Guestly.Migrations
                             Email = "jmcteller@email.com",
                             FirstName = "Joshua",
                             LastName = "McTeller",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 170f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4155558894"
                         },
                         new
@@ -255,8 +257,8 @@ namespace Guestly.Migrations
                             Email = "nnatell@email.com",
                             FirstName = "Natalie",
                             LastName = "Lass",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 110f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5415558896"
                         },
                         new
@@ -265,8 +267,8 @@ namespace Guestly.Migrations
                             Email = "tridoublep@email.com",
                             FirstName = "Tripp",
                             LastName = "Ford",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 500f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5035552483"
                         },
                         new
@@ -275,8 +277,8 @@ namespace Guestly.Migrations
                             Email = "wilford@email.com",
                             FirstName = "Willie",
                             LastName = "Ford",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 110f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4155556472"
                         },
                         new
@@ -285,8 +287,8 @@ namespace Guestly.Migrations
                             Email = "katwoz@email.com",
                             FirstName = "Kaitlin",
                             LastName = "Wozniak",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 375f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5035558258"
                         },
                         new
@@ -295,8 +297,8 @@ namespace Guestly.Migrations
                             Email = "madalynl11@email.com",
                             FirstName = "Madalyn",
                             LastName = "Lathem",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 220f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "6514553861"
                         },
                         new
@@ -305,8 +307,8 @@ namespace Guestly.Migrations
                             Email = "sean.mercado04@email.com",
                             FirstName = "Sean",
                             LastName = "Mercado",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 125f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5018988936"
                         },
                         new
@@ -315,8 +317,8 @@ namespace Guestly.Migrations
                             Email = "viktoriaaksnes@email.com",
                             FirstName = "Viktoria",
                             LastName = "Nielsen",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 440f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "7843247148"
                         },
                         new
@@ -325,8 +327,8 @@ namespace Guestly.Migrations
                             Email = "now@email.com",
                             FirstName = "Nao",
                             LastName = "Oka",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 425f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "3193198947"
                         },
                         new
@@ -335,8 +337,8 @@ namespace Guestly.Migrations
                             Email = "bernie@mittens.com",
                             FirstName = "Bernie",
                             LastName = "Hancock",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 255f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2778649180"
                         },
                         new
@@ -345,8 +347,8 @@ namespace Guestly.Migrations
                             Email = "pratte16@email.com",
                             FirstName = "Eleanor",
                             LastName = "Pratte",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 220f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4529407334"
                         },
                         new
@@ -355,8 +357,8 @@ namespace Guestly.Migrations
                             Email = "aurorabergen@email.com",
                             FirstName = "Aurora",
                             LastName = "Berg",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 110f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1338214188"
                         },
                         new
@@ -365,8 +367,8 @@ namespace Guestly.Migrations
                             Email = "mr.underhill@email.com",
                             FirstName = "Frodo",
                             LastName = "Baggins",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 380f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5385970949"
                         },
                         new
@@ -375,8 +377,8 @@ namespace Guestly.Migrations
                             Email = "takanoart@email.com",
                             FirstName = "Aya",
                             LastName = "Takano",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 625f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2969397018"
                         },
                         new
@@ -385,8 +387,8 @@ namespace Guestly.Migrations
                             Email = "deckard.rick@email.com",
                             FirstName = "Rick",
                             LastName = "Deckard",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 450f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "6192533993"
                         },
                         new
@@ -395,8 +397,8 @@ namespace Guestly.Migrations
                             Email = "happy_golfmore@email.com",
                             FirstName = "Happy",
                             LastName = "Gilmore",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 190f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1234578900"
                         },
                         new
@@ -405,8 +407,8 @@ namespace Guestly.Migrations
                             Email = "joycesummers@email.com",
                             FirstName = "Joyce",
                             LastName = "Summers",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 85f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1987899876"
                         },
                         new
@@ -415,8 +417,8 @@ namespace Guestly.Migrations
                             Email = "KHarm123@email.com",
                             FirstName = "Harmony",
                             LastName = "Kendall",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 340f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1465768945"
                         },
                         new
@@ -425,8 +427,8 @@ namespace Guestly.Migrations
                             Email = "JennyCal@email.com",
                             FirstName = "Jenny",
                             LastName = "Calendar",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 475f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2343546754"
                         },
                         new
@@ -435,8 +437,8 @@ namespace Guestly.Migrations
                             Email = "anointed1_66@email.com",
                             FirstName = "Annointed",
                             LastName = "One",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 450f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "6894562341"
                         },
                         new
@@ -445,8 +447,8 @@ namespace Guestly.Migrations
                             Email = "H.Sums@email.com",
                             FirstName = "Hank",
                             LastName = "Summers",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 300f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1029384234"
                         },
                         new
@@ -455,8 +457,8 @@ namespace Guestly.Migrations
                             Email = "jessekmcjay@email.com",
                             FirstName = "Jesse",
                             LastName = "McNally",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 85f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4675823123"
                         },
                         new
@@ -465,8 +467,8 @@ namespace Guestly.Migrations
                             Email = "JonLev@email.com",
                             FirstName = "Jonathan",
                             LastName = "Levinson",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 440f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "9858673452"
                         },
                         new
@@ -475,8 +477,8 @@ namespace Guestly.Migrations
                             Email = "eRayne@email.com",
                             FirstName = "Ethan",
                             LastName = "Rayne",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 625f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2384655432"
                         },
                         new
@@ -485,8 +487,8 @@ namespace Guestly.Migrations
                             Email = "gottahavefaith@email.com",
                             FirstName = "Faith",
                             LastName = "Lehane",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 330f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2349853456"
                         },
                         new
@@ -495,8 +497,8 @@ namespace Guestly.Migrations
                             Email = "notTaratino@email.com",
                             FirstName = "Quentin",
                             LastName = "Travers",
-                            LifetimeNights = 12,
-                            LifetimeRevenue = 1020f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "3458768676"
                         },
                         new
@@ -505,8 +507,8 @@ namespace Guestly.Migrations
                             Email = "scott!@email.com",
                             FirstName = "Scott",
                             LastName = "Hope",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 150f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5436667534"
                         },
                         new
@@ -515,8 +517,8 @@ namespace Guestly.Migrations
                             Email = "asYouWish@email.com",
                             FirstName = "Wesley",
                             LastName = "Pryce",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 600f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2345674564"
                         },
                         new
@@ -525,8 +527,8 @@ namespace Guestly.Migrations
                             Email = "PromQueen@email.com",
                             FirstName = "Cordelia",
                             LastName = "Chase",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 475f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "5543234321"
                         },
                         new
@@ -535,8 +537,8 @@ namespace Guestly.Migrations
                             Email = "OnlyBuffyWillJudge@email.com",
                             FirstName = "Buffy",
                             LastName = "Summers",
-                            LifetimeNights = 13,
-                            LifetimeRevenue = 1105f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "8778887634"
                         },
                         new
@@ -545,8 +547,8 @@ namespace Guestly.Migrations
                             Email = "Bookguy@email.com",
                             FirstName = "Rupert",
                             LastName = "Giles",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 170f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4756566879"
                         },
                         new
@@ -555,8 +557,8 @@ namespace Guestly.Migrations
                             Email = "witchStuff@email.com",
                             FirstName = "Willow",
                             LastName = "Rosenberg",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 95f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "7998884475"
                         },
                         new
@@ -565,8 +567,8 @@ namespace Guestly.Migrations
                             Email = "jokesDotCom@email.com",
                             FirstName = "Xander",
                             LastName = "Harris",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 600f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "3334958679"
                         },
                         new
@@ -575,8 +577,8 @@ namespace Guestly.Migrations
                             Email = "BadBois@email.com",
                             FirstName = "William",
                             LastName = "Pratt",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 625f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4445556634"
                         },
                         new
@@ -585,8 +587,8 @@ namespace Guestly.Migrations
                             Email = "ImaMouse@email.com",
                             FirstName = "Amy",
                             LastName = "Madison",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 285f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2873345543"
                         },
                         new
@@ -595,8 +597,8 @@ namespace Guestly.Migrations
                             Email = "TwoNewtons@email.com",
                             FirstName = "Cassie",
                             LastName = "Newton",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 220f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "9987896786"
                         },
                         new
@@ -605,8 +607,8 @@ namespace Guestly.Migrations
                             Email = "Alternate@email.com",
                             FirstName = "Chao",
                             LastName = "Ahn",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 110f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "6675844776"
                         },
                         new
@@ -615,8 +617,8 @@ namespace Guestly.Migrations
                             Email = "SeattleResident@email.com",
                             FirstName = "Count",
                             LastName = "Dracula",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 340f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "9980987867"
                         },
                         new
@@ -625,8 +627,8 @@ namespace Guestly.Migrations
                             Email = "militarystuff@email.com",
                             FirstName = "Forrest",
                             LastName = "Gates",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 425f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "8009978865"
                         },
                         new
@@ -635,8 +637,8 @@ namespace Guestly.Migrations
                             Email = "Indiacohen@email.com",
                             FirstName = "India",
                             LastName = "Cohen",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 330f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "9078788986"
                         },
                         new
@@ -645,8 +647,8 @@ namespace Guestly.Migrations
                             Email = "janicePenshaw@email.com",
                             FirstName = "Janice",
                             LastName = "Penshaw",
-                            LifetimeNights = 2,
-                            LifetimeRevenue = 250f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "6678745632"
                         },
                         new
@@ -655,8 +657,8 @@ namespace Guestly.Migrations
                             Email = "KathyNewman@email.com",
                             FirstName = "Kathy",
                             LastName = "Newman",
-                            LifetimeNights = 1,
-                            LifetimeRevenue = 110f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "1122212345"
                         },
                         new
@@ -665,8 +667,8 @@ namespace Guestly.Migrations
                             Email = "KendraYoung@email.com",
                             FirstName = "Kendra",
                             LastName = "Young",
-                            LifetimeNights = 4,
-                            LifetimeRevenue = 500f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "4645534233"
                         },
                         new
@@ -675,8 +677,8 @@ namespace Guestly.Migrations
                             Email = "TheDevil@email.com",
                             FirstName = "Satan",
                             LastName = "Lucifer",
-                            LifetimeNights = 5,
-                            LifetimeRevenue = 550f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "6666666666"
                         },
                         new
@@ -685,8 +687,8 @@ namespace Guestly.Migrations
                             Email = "TheJenny@email.com",
                             FirstName = "Jenny",
                             LastName = "Jenny",
-                            LifetimeNights = 3,
-                            LifetimeRevenue = 375f,
+                            LifetimeNights = 0,
+                            LifetimeRevenue = 0f,
                             PhoneNumber = "2018675309"
                         });
                 });

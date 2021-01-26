@@ -1,0 +1,46 @@
+@{
+  Layout = "_Layout";
+}
+
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@{
+    ViewBag.Title = "All Roles";
+}
+
+<h1>All Roles:</h1>
+
+@if (Model.Any())
+{
+  @Html.ActionLink("Create Role", "CreateRole", "Administration", null, new { @class="btn btn-light" })
+  <hr />
+  foreach(var role in Model)
+  {
+    <div class="card">
+      <div class="card-header">
+        Role Id: @role.Id
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">@role.Name</h3>
+      </div>
+      <div class="card-footer">
+        @Html.ActionLink("Edit", "EditRole", "Administration", new { id = role.Id }, new { @class="btn btn-light" })
+      </div>
+    </div>
+    <hr />
+  }
+}
+else
+{
+  <div class="card">
+    <div class="card-header">
+      No roles have neen created
+    </div>
+    <div class="card-body">
+      <p class="card-title ">
+        Use button to create a role
+      </p>
+      @Html.ActionLink("Create Role", "CreateRole", "Administration", null, new { @class="btn btn-light" })
+    </div>
+  </div>
+}

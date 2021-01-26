@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@model List<Guestly.ViewModels.UserRoleViewModel>
+
+@{
+  var roleId = ViewBag.roleId;
+}
+
+@using (Html.BeginForm("EditUsersInRole", "Administration", FormMethod.Post))
+{
+  <br>
+  <div class="card">
+    <div class="card-header">
+      <h1>Add or remove users from this role</h1>
+    </div>
+    <div class="card-body">
+      @for(int i = 0; i < Model.Count; i++)
+      {
+        <div class="form-check">
+          @Html.HiddenFor(model => model[i].UserId)
+          @Html.HiddenFor(model => model[i].UserName)
+          @Html.CheckBoxFor(model => model[i].IsSelected)
+          @Html.DisplayFor(model => model[i].UserName)
+        </div>
+      }
+    </div>
+    <div class="card-footer">
+      <input type="submit" value="Update" class="btn btn-light" />
+      
+      @Html.ActionLink("Cancel", "EditRole", "Administration", new { id = roleId }, new { @class="btn btn-light" })
+      
+    </div>
+  </div>
+}

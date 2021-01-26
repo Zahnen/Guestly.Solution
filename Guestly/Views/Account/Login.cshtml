@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Guestly.ViewModels
+
+@model LoginViewModel
+
+<br>
+<div class="card custom-card">
+  <div class="card-header">
+    <h1 class="display-4">Log in with your account</h1>
+  </div>
+  @using (Html.BeginForm())
+  {
+    <div class="card-body">
+      <div class="form-group">
+      @Html.LabelFor(m => m.Email)
+      @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+      </div>
+      <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+      </div>
+    </div>
+    <div class="card-footer">
+      <input type="submit" value="Log in" class="btn btn-outline-secondary" />
+    </div>
+  }
+</div>

@@ -1,0 +1,56 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Guestly.ViewModels
+
+@model EditRoleViewModel
+
+@using (Html.BeginForm("EditRole", "Administration", FormMethod.Post))
+{
+  <br>
+  <div class="card">
+    <div class="card-header">
+      <h1>Edit Roles</h1>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        @Html.Label("Id")
+        @Html.TextBoxFor(user=> user.Id,  new { @class = "form-control", @disabled = "disabled"  })
+      </div>
+      <div class="form-group">
+        @Html.Label("Role Name")
+        @Html.TextBoxFor(user=> user.RoleName, new { @class = "form-control" })
+      </div>
+    </div>
+    <div class="card-footer">
+      <input type="submit" value="Update" class="btn btn-light" />
+      
+      @Html.ActionLink("Cancel", "ListRoles", "Administration", null, new { @class="btn btn-light" })
+      
+    </div>
+  </div>
+    <hr />
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Users in this role</h3>
+      </div>
+      <div class="card-body">
+        @if(Model.Users.Any())
+        {
+          foreach(var user in Model.Users)
+          {
+            <h5 class="card-title">@user</h5>
+          }
+        }
+        else
+        {
+          <h5 class="card-title">None at the moment</h5>
+        }
+      </div>
+      <div class="card-footer">
+        @Html.ActionLink("Add or Remove Users", "EditUsersInRole", "Administration", new { id = Model.Id }, new { @class="btn btn-light" })
+      </div>
+    </div>
+}

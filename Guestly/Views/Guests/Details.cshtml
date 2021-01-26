@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Guestly.Models.Guest
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>@Html.DisplayFor(model => model.FirstName)</h1>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.GuestId })</button>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = Model.GuestId })</button>
+  </div>
+  <div class="col-sm-6">
+    <h1>Stay records:</h1>
+    <ul>
+      @if (@Model.Rooms.Count == 0)
+      {
+        <h3>No stay records for @Html.DisplayFor(model => model.FirstName)</h3>
+      }
+      @foreach(var join in Model.Rooms)
+      {
+        <li>@Html.ActionLink($"{@join.Room.RoomNumber}", "Details", "Rooms", new { id = join.RoomId } )</li>
+          @using (Html.BeginForm("RemoveRoom", "Guests"))
+          {
+            @Html.Hidden("joinId", @join.GuestRoomId)
+            <button class="btn btn-default" type="submit">Remove</button>
+          }
+      }
+    </ul>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Add a stay record", "AddRoom", new { id = Model.GuestId })</button>
+  </div>
+</div>

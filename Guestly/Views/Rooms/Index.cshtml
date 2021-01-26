@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Guestly.Models;
+@model List<Guestly.Models.Room>;
+
+<h1>Room Directory</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Rooms have been added yet!</h3>
+}
+
+<table class="table table-hover table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (Room room in Model)
+{
+    <tr onclick="location.href = '@(Url.Action("Details", "Rooms", new { id = room.RoomId }))'">
+      <td>@room.RoomNumber</td>
+      <td>@room.RoomType</td>
+      <td>$@room.Price</td>
+    </tr>
+}
+  <tbody>
+</table>

@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Guestly.Models.Room;
+
+<div class="card">
+    <div class = "card-header">
+    <h1>Add a new Room</h1>
+    </div> 
+    @using (Html.BeginForm())
+    {
+    <div class="card-body">
+      <div class="form-group">
+        @Html.Label("Room Number:")
+        @Html.TextBoxFor(model => model.RoomNumber, new { @class="form-control", placeholder = "Room Number", required = "required"})
+      </div>
+      <div class="form-group">
+        @Html.Label("Room Type:")
+        @Html.TextBoxFor(model => model.RoomType, new { @class="form-control", placeholder = "Room Type", required = "required"})
+      </div>
+      <div class="form-group">
+        @Html.Label("Room Price:")
+        @Html.TextBoxFor(model => model.Price, new { @class="form-control", type = "number", step = "0.01", placeholder = "Price", required = "required"})
+      </div>
+    </div>   
+
+    <div class="card-footer">
+      <input type="submit" value="Add new Room" class="btn btn-outline-secondary" />
+    </div>
+    }
+</div>

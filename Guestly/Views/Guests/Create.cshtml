@@ -1,0 +1,77 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Guestly.ViewModels;
+@model Guestly.ViewModels.CreateGuestAndStayViewModel;
+
+
+
+<div class="card">
+    <div class = "card-header">
+    <h1>Add a new guest</h1>
+    </div> 
+    @using (Html.BeginForm())
+    {
+    <div class="card-body">
+      <div class="form-group">
+        @Html.Label("First Name:")
+        @Html.TextBoxFor(model => model.FirstName, new { @class="form-control", placeholder = "First Name", required = "required"})
+      </div>
+      <div class="form-group">
+        @Html.Label("Last Name:")
+        @Html.TextBoxFor(model => model.LastName, new { @class="form-control", placeholder = "Last Name", required = "required"})
+      </div>
+      <div class="form-group">
+        @Html.Label("Guest Email:")
+        @Html.TextBoxFor(model => model.Email, new { @class="form-control", placeholder = "Guest Email", required = "required"})
+      </div>
+      <div class="form-group">
+        @Html.Label("Guest Phone Number:")
+        @Html.TextBoxFor(model => model.PhoneNumber, new { @class="form-control", placeholder = "Guest Phone Number", required = "required"})
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="add_entry" name="add_entry">
+        <label class="form-check-label" for="add_entry">Add a stay to this Guest</label>
+      </div>
+      
+        <div class="form-group" id="entry_form" style="display:none">
+        @*<select class="form-control">
+          @foreach(Room room in @ViewBag.Rooms)
+          {
+            <option value=@room.RoomId> @room.RoomNumber</option>
+          }
+        </select>*@
+        <div class="form-control">
+          @Html.Label("Select Room Number")
+          @Html.DropDownList("RoomId")
+        </div>
+
+        <div class="form-control">
+          @Html.Label("Nights Stayed")
+          @Html.TextBoxFor(model => model.Nights, new{@class="form-control", type="number"})
+        </div>
+      </div>
+    </div>   
+
+
+    <div class="card-footer">
+      <input type="submit" value="Add new Guest" class="btn btn-outline-secondary" />
+    </div>
+    }
+</div>
+
+<script type="text/javascript">   
+    const checkbox = document.querySelector("input[name=add_entry");
+    checkbox.addEventListener('change', function(){
+      if(this.checked) {
+        $("#entry_form").show();
+      }
+      else {
+        $("#entry_form").hide();
+      }
+    });
+        
+
+</script>

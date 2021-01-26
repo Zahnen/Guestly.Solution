@@ -9,6 +9,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
   </head>
   <body>
+  @if (User.Identity.IsAuthenticated)
+    {
+    <div class="container-fluid">
+      <div class="account-nav">
+        <p>Logged in as @User.Identity.Name. <a href="/Account/">Sign out</a></p>
+      </div>
+    </div>
+    }
+    else
+    {
+    <div class="container-fluid">
+      <div class="account-nav">
+        <a href="/Account/Login">Sign in</a> or <a href="/Account/Register">Create Account</a>
+      </div>
+    </div>
+    }
     <nav class="navbar navbar-dark">
       <div class="container">
         <div class="navbar-header">

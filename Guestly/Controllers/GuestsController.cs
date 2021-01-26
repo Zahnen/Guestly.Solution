@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Guestly.Models;
 using Guestly.ViewModels;
+using System;
 
 namespace Guestly.Controllers
 {
@@ -22,6 +23,46 @@ namespace Guestly.Controllers
     {
       List<Guest> guestList = _db.Guests.ToList();
       return View(guestList);
+    }
+
+    [HttpPost]
+    public ActionResult Index(string firstName, string lastName, string email, string phoneNumber, string revenue, string nights)
+    {
+      var guestList = _db.Guests.AsQueryable();
+
+      if(!String.IsNullOrEmpty(firstName))
+      {
+        guestList = guestList.Where(entry=>entry.FirstName == firstName);
+      }
+
+      if(!String.IsNullOrEmpty(lastName))
+      {
+        guestList = guestList.Where(entry=>entry.LastName == lastName);
+      }
+      
+      if(!String.IsNullOrEmpty(email))
+      {
+        guestList = guestList.Where(entry=>entry.Email == email);
+      }
+      
+      if(!String.IsNullOrEmpty(phoneNumber))
+      {
+        guestList = guestList.Where(entry=>entry.PhoneNumber == phoneNumber);
+      }
+      
+      if(!String.IsNullOrEmpty(revenue))
+      {
+        var revenueFloat = float.Parse(revenue);
+        guestList = guestList.Where(entry=>entry.LifetimeRevenue >= revenueFloat);
+      }
+      
+      if(!String.IsNullOrEmpty(nights))
+      {
+        var nightsInt = int.Parse(nights);
+        guestList = guestList.Where(entry=>entry.LifetimeNights == nightsInt);
+      }
+      
+      return View(guestList.ToList());
     }
 
     public ActionResult Create()
@@ -117,3 +158,4 @@ namespace Guestly.Controllers
     }
   }
 }
+

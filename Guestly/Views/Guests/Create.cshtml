@@ -37,12 +37,6 @@
       </div>
       
         <div class="form-group" id="entry_form" style="display:none">
-        @*<select class="form-control">
-          @foreach(Room room in @ViewBag.Rooms)
-          {
-            <option value=@room.RoomId> @room.RoomNumber</option>
-          }
-        </select>*@
         <div class="form-control">
           @Html.DropDownList("RoomId", (SelectList)ViewBag.RoomId, "Select Room Number", new { @class = "form-control" })
         </div>

@@ -6,6 +6,22 @@
 @model List<Guestly.Models.Guest>;
 
 <h1>Guest Database:</h1>
+@using (Html.BeginForm())
+{
+
+<div class="container searchInputs">
+  @Html.TextBox("firstName", null ,new { placeholder = "First Name"})
+  @Html.TextBox("lastName", null ,new { placeholder = "Last Name"})
+  <input type="button" id="refine" value="Refine Search" class="btn btn-danger"/>
+  <div id="params" style="display:none">
+    @Html.TextBox("email", null ,new { placeholder = "Email"})
+    @Html.TextBox("phone", null ,new { placeholder = "Phone Number"})
+    @Html.TextBox("revenue", null ,new { placeholder = "Minimum Lifetime Revenue"})
+    @Html.TextBox("nights", null ,new { placeholder = "Nights Stayed"})
+  </div>
+</div>
+<input type="submit" value="Search" class="btn btn-info"/>
+}
 
 @if (@Model.Count == 0)
 {
@@ -23,8 +39,8 @@
     </tr>
   </thead>
   <tbody>
-@foreach (Guest guest in Model)
-{
+  @foreach (Guest guest in Model)
+  {
     <tr onclick="location.href = '@(Url.Action("Details", "Guests", new { id = guest.GuestId }))'">
       <td>@guest.FirstName</td>
       <td>@guest.LastName</td>
@@ -32,6 +48,21 @@
       <td>@guest.LifetimeNights</td>
       <td>$ @guest.LifetimeRevenue</td>
     </tr>
-}
+  }
   <tbody>
 </table>
+
+@* @using (Html.BeginForm())
+{
+<p>
+    Name  : @Html.TextBox("SearchName")<br />
+    <input type="submit" value="Search" />
+</p>
+} *@
+
+
+<script type="text/javascript">   
+    document.querySelector("#refine").addEventListener('click', function(){
+      $("#params").toggle();
+    });
+</script>

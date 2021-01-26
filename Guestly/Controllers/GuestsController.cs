@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using Guestly.Models;
+using Guestly.ViewModels;
 
 namespace Guestly.Controllers
 {
@@ -25,13 +26,19 @@ namespace Guestly.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.RoomId = new SelectList(_db.Rooms, "RoomId", "RoomNumber");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Guest guest)
+    public ActionResult Create(CreateGuestAndStayViewModel guest)
     {
-      _db.Guests.Add(guest);
+      var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber};
+      _db.Guests.Add(thisGuest);
+      if(guest.RoomId != 0 && guest.Nights != 0)
+      {
+        _db.GuestRoom.Add(new GuestRoom(){GuestId = thisGuest.GuestId, RoomId = guest.RoomId, Nights = guest.Nights});
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

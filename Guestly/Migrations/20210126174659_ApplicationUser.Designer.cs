@@ -3,14 +3,16 @@ using System;
 using Guestly.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Guestly.Migrations
 {
     [DbContext(typeof(GuestlyContext))]
-    partial class GuestlyContextModelSnapshot : ModelSnapshot
+    [Migration("20210126174659_ApplicationUser")]
+    partial class ApplicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

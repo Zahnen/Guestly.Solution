@@ -35,74 +35,74 @@
       </div>
     </nav> *@
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="/">Guestly</a>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Guestly</a>
 
-  <!-- Guests -->
-  <ul class="nav mr-auto">
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle text-white" href="/" id="navbardrop" data-toggle="dropdown"><i class="fas fa-users"></i>
-        Guests
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="/guests">View all guests</a>
-        <a class="dropdown-item" href="/guests/create">Add a new guest</a>
-    </li>
+      <!-- Guests -->
+      <ul class="nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="/" id="navbardrop" data-toggle="dropdown"><i class="fas fa-users"></i>
+            Guests
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/guests">View all guests</a>
+            <a class="dropdown-item" href="/guests/create">Add a new guest</a>
+        </li>
 
-    <!-- Rooms -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle text-white" href="/" data-toggle="dropdown"> <i class="fas fa-bell"></i> Rooms</a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="/rooms">View all rooms</a>
-        <a class="dropdown-item" href="/rooms/create">Add a new room</a>
-      </div>
-    </li>
+        <!-- Rooms -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="/" data-toggle="dropdown"> <i class="fas fa-bell"></i> Rooms</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/rooms">View all rooms</a>
+            <a class="dropdown-item" href="/rooms/create">Add a new room</a>
+          </div>
+        </li>
 
-    <!-- Account -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle text-white" href="/" id="navbardrop" data-toggle="dropdown"><i class="fas fa-address-card"></i>
-        Account
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item " href="/Account/Login">Login</a>
-        <a class="dropdown-item" href="/Account/Register">Register</a>
-        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-        {
-        <a class="dropdown-item" href="#">Admin?</a>
-        }
-      </div>
-    </li>
-  </ul>
-
-  <ul class="nav">
-    @if (User.Identity.IsAuthenticated)
-      {
-        <li class="nav-item">
-          @using (Html.BeginForm("LogOff", "Account"))
-          {
+        <!-- Account -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="/" id="navbardrop" data-toggle="dropdown"><i class="fas fa-address-card"></i>
+            Account
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/Account/Login">Login</a>
+            <a class="dropdown-item" href="/Account/Register">Register</a>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
-                <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout of ADMIN @User.Identity.Name">
+            <a class="dropdown-item" href="#">Admin?</a>
             }
-            else
-            {
-            <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name">
-            }
-          }
+          </div>
         </li>
-      }
-      else
-      {
-      <li class="nav-item">
-          <a class="nav-link text-white" href="/account/register">Register</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link text-white" href="/account/login">Login</a>
-      </li>
-      }
-  </ul>
-</nav>
+      </ul>
+
+      <ul class="nav">
+        @if (User.Identity.IsAuthenticated)
+          {
+            <li class="nav-item">
+              @using (Html.BeginForm("LogOff", "Account"))
+              {
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout of ADMIN @User.Identity.Name">
+                }
+                else
+                {
+                <input type="submit" class="nav-item btn btn-link text-white" style="width:auto" value="Logout @User.Identity.Name">
+                }
+              }
+            </li>
+          }
+          else
+          {
+          <li class="nav-item">
+              <a class="nav-link text-white" href="/account/register">Register</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-white" href="/account/login">Login</a>
+          </li>
+          }
+      </ul>
+    </nav>
 
     <div class="container">
       @RenderBody()

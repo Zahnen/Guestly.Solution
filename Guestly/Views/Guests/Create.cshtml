@@ -44,8 +44,7 @@
           }
         </select>*@
         <div class="form-control">
-          @Html.Label("Select Room Number")
-          @Html.DropDownList("RoomId")
+          @Html.DropDownList("RoomId", (SelectList)ViewBag.RoomId, "Select Room Number", new { @class = "form-control" })
         </div>
 
         <div class="form-control">

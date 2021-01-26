@@ -33,7 +33,10 @@ namespace Guestly.Controllers
     [HttpPost]
     public ActionResult Create(CreateGuestAndStayViewModel guest)
     {
-      var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber};
+      var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == guest.RoomId);
+      var revenue = guest.Nights * thisRoom.Price;
+      var nights = guest.Nights;
+      var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber, LifetimeRevenue = revenue, LifetimeNights = nights};
       _db.Guests.Add(thisGuest);
       if(guest.RoomId != 0 && guest.Nights != 0)
       {
@@ -66,13 +69,25 @@ namespace Guestly.Controllers
       return RedirectToAction("Details", new { id = guest.GuestId });
     }
 
-    [HttpPost]
-    public ActionResult AddRoom(Guest guest, int RoomId)
+    public ActionResult AddRoom(int id)
     {
+      var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == id);
+      ViewBag.RoomId = new SelectList(_db.Rooms, "RoomId", "RoomNumber");
+      return View(thisGuest);
+    }
+
+    [HttpPost]
+    public ActionResult AddRoom(Guest guest, int RoomId, int newNights)
+    {
+      var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == RoomId);
+      var thisRevenue = newNights * thisRoom.Price;
+      guest.LifetimeRevenue += thisRevenue;
+      guest.LifetimeNights += newNights;
+      _db.Entry(guest).State = EntityState.Modified;
       if (RoomId != 0)
       {
         _db.GuestRoom.Add(new GuestRoom() {RoomId = RoomId, GuestId = guest.GuestId});
-      }
+      } 
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = guest.GuestId});
     }

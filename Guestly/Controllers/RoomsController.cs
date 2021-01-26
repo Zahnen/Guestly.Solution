@@ -73,8 +73,13 @@ namespace Guestly.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddGuest(Room room, int GuestId)
+    public ActionResult AddGuest(Room room, int GuestId, int newNights)
     {
+      var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == GuestId);
+      var thisRevenue = newNights * room.Price;
+      thisGuest.LifetimeRevenue += thisRevenue;
+      thisGuest.LifetimeNights += newNights;
+      _db.Entry(thisGuest).State = EntityState.Modified;
       if (GuestId != 0)
       {
         var returnedJoin = _db.GuestRoom

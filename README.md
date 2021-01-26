@@ -40,6 +40,7 @@
 
 5. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info can be viewed.
 
+6. As a hotel employee, I need to be able to search for guests, rooms, and ____________?
 
 ## Stretch Goals?
 
@@ -47,13 +48,11 @@
 
 2. As a hotel employee, I would like if revenue tracking was presented in an easy-to-digest interface (charts, graphs, etc).
 
-3. Search Bar
+3. User Roles - Admin can message application users. [define more roles?] harcode user roles?
 
-4. User Roles - Admin can message application users. [define more roles?] harcode user roles?
+4. JS front end - adding interactivity with nav bar, etc. 
 
-5. JS front end - adding interactivity with nav bar, etc. 
-
-6. Handle Identity Errors 
+5. Handle Identity Errors 
 
 
 # 🧑‍💻 Contributers

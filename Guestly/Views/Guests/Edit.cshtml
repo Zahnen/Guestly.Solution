@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Guestly.Models.Guest
+
+<h1>Edit</h1>
+
+<h3>Edit @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)'s profile:</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.GuestId)
+  @Html.HiddenFor(model => model.LifetimeNights)
+  @Html.HiddenFor(model => model.LifetimeRevenue)
+
+  @Html.LabelFor(model => model.FirstName)
+  @Html.EditorFor(model => model.FirstName)
+
+  @Html.LabelFor(model => model.LastName)
+  @Html.EditorFor(model => model.LastName)
+
+  @Html.LabelFor(model => model.PhoneNumber)
+  @Html.EditorFor(model => model.PhoneNumber)
+
+  @Html.LabelFor(model => model.Email)
+  @Html.EditorFor(model => model.Email)
+
+  @Html.LabelFor(model => model.FirstName)
+  @Html.EditorFor(model => model.FirstName)
+
+  <input type="submit" value="Save" />
+}

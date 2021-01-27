@@ -2,3 +2,40 @@
   Layout = "_Layout";
 }
 
+@using Guestly.Models;
+@model Guestly.Models.MyBabyView;
+
+@* 
+All Guests = Model.AllGuests
+All Rooms = Model.AllRooms 
+*@
+
+<div class="row">
+  <div class="col-6">
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <h1>Guests</h1>
+      </div>
+      <ul class="list-group list-group-flush">
+        @foreach (var guest in Model.AllGuests)
+        {
+          <li class="list-group-item"><h3>@Html.ActionLink($"{guest.FirstName}{guest.LastName}. LifetimeNights: {guest.LifetimeNights}, Lifetime revenue: {guest.LifetimeRevenue}", "Details", "Guests", new { id = guest.GuestId })</h3></li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <h1>Rooms</h1>
+      </div>
+      <ul class="list-group list-group-flush">
+      @foreach (var room in Model.AllRooms)
+      {
+        <li class="list-group-item"><h3>@Html.ActionLink($"#{room.RoomNumber}, type: {room.RoomType}, price: {room.Price}", "Details", "Rooms", new { id = room.RoomId } )</h3></li>
+      }
+      </ul>
+    </div>
+  </div>
+</div>

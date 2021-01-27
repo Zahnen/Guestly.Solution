@@ -9,16 +9,19 @@ namespace Guestly.Controllers
 {
     public class HomeController : Controller
     {
-      // private readonly GuestlyContext _db;
+      private readonly GuestlyContext _db;
 
-      // public HomeController(GuestlyContext db)
-      // {
-      //   _db = db;
-      // }
+      public HomeController(GuestlyContext db)
+      {
+        _db = db;
+      }
 
       public ActionResult Index()
       {
-        return View();
+        var viewModel = new MyBabyView();
+        viewModel.AllGuests = _db.Guests.ToList();
+        viewModel.AllRooms = _db.Rooms.ToList();
+        return View(viewModel);
       }
 
     }

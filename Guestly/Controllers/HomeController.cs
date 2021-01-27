@@ -31,10 +31,11 @@ namespace Guestly.Controllers
       };
 
 			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+			ViewBag.TotalRev = PropertyLifeTimeRev();
         return View(viewModel);
       }
       
-      public float RoomRevCalc(string roomType)
+      public int RoomRevCalc(string roomType)
       {
         var roomsQuery = _db.Rooms.AsQueryable();
         var joinQuery = _db.GuestRoom.AsQueryable();
@@ -53,10 +54,10 @@ namespace Guestly.Controllers
         return price * counter;
       }
       
-      public float PropertyLifeTimeRev()
+      public int PropertyLifeTimeRev()
       {
         var guestList = _db.Guests.ToList();
-        float rev = 0;
+        int rev = 0;
         foreach(Guest guest in guestList)
         {
           rev += guest.LifetimeRevenue;

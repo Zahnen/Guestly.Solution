@@ -15,7 +15,7 @@ namespace Guestly.Models
     public string RoomNumber { get; set; }
     public string RoomType { get; set; }
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
-    public float Price { get; set; }
+    public int Price { get; set; }
     public ICollection <GuestRoom> Guests { get; set; }
   }
 }

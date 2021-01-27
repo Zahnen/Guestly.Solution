@@ -18,7 +18,7 @@ namespace Guestly.Models
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
     public int LifetimeNights { get; set; }
-    public float LifetimeRevenue { get; set; }
+    public int LifetimeRevenue { get; set; }
     public ICollection <GuestRoom> Rooms { get; set; }
   }
 }

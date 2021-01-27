@@ -13,7 +13,8 @@
   @Html.TextBox("firstName", null ,new { placeholder = "First Name"})
   @Html.TextBox("lastName", null ,new { placeholder = "Last Name"})
   <input type="submit" value="Search" class="btn btn-info"/>
-  <h6 id="refine" style="cursor:pointer; color:blue">Refine Search</h6>
+  <br>
+  <span id="refine" style="cursor:pointer; color:blue">Refine Search</span>
   <div id="params" style="display:none">
     @Html.TextBox("email", null ,new { placeholder = "Email"})
     @Html.TextBox("phone", null ,new { placeholder = "Phone Number"})
@@ -27,25 +28,25 @@
 {
   <h3>There are no guests.</h3>
 }
-<table class="table table-hover table-striped">
+<table id="myTable" class="table table-hover table-striped">
   <thead class="thead-light">
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
-      <th>Lifetime Nights</th>
-      <th>Lifetime Revenue</th>
+      <th style="cursor:pointer" onclick="sortTable('table table-hover table-striped', 0)">Firstname</th>
+      <th style="cursor:pointer" onclick="sortTable('table table-hover table-striped', 1)">Lastname</th>
+      <th style="cursor:pointer" onclick="sortTable('table table-hover table-striped', 2)">Email</th>
+      <th style="cursor:pointer" onclick="sortTable('table table-hover table-striped', 3)">Lifetime Nights</th>
+      <th style="cursor:pointer" onclick="sortTable('table table-hover table-striped', 4)">Lifetime Revenue</th>
     </tr>
   </thead>
   <tbody>
   @foreach (Guest guest in Model)
   {
     <tr onclick="location.href = '@(Url.Action("Details", "Guests", new { id = guest.GuestId }))'">
-      <td>@guest.FirstName</td>
-      <td>@guest.LastName</td>
-      <td>@guest.Email</td>
-      <td>@guest.LifetimeNights</td>
-      <td>$ @guest.LifetimeRevenue</td>
+      <td><span class="data">@guest.FirstName</span></td>
+      <td><span class="data">@guest.LastName</span></td>
+      <td><span class="data">@guest.Email</span></td>
+      <td><span class="data">@guest.LifetimeNights</span></td>
+      <td>$<span class="data">@guest.LifetimeRevenue</span>.00</td>
     </tr>
   }
   <tbody>
@@ -55,4 +56,47 @@
     document.querySelector("#refine").addEventListener('click', function(){
       $("#params").toggle();
     });
+</script>
+
+<script>
+function sortTable(tableClass, n) {
+var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+table = document.getElementsByClassName(tableClass)[0];
+switching = true;
+dir = "asc";
+while (switching) {
+  switching = false;
+  rows = table.getElementsByTagName("TR");
+  for (i = 1; i < (rows.length - 1); i++) {
+    shouldSwitch = false;
+    x = rows[i].getElementsByClassName("data")[n];
+    y = rows[i + 1].getElementsByClassName("data")[n];
+    var cmpX=isNaN(parseInt(x.innerHTML))?x.innerHTML.toLowerCase():parseInt(x.innerHTML);
+    var cmpY=isNaN(parseInt(y.innerHTML))?y.innerHTML.toLowerCase():parseInt(y.innerHTML);
+    cmpX=(cmpX=='-')?0:cmpX;
+    cmpY=(cmpY=='-')?0:cmpY;
+    if (dir == "asc") {
+        if (cmpX > cmpY) {
+          shouldSwitch= true;
+          break;
+        }
+    } else if (dir == "desc") {
+        if (cmpX < cmpY) {
+          shouldSwitch= true;
+          break;
+        }
+    }
+  }
+  if (shouldSwitch) {
+    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+    switching = true;
+    switchcount ++;      
+  } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
 </script>

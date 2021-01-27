@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <small>Last Updated: January 26th, 2021</small>
+  <small>Last Updated: January 27th, 2021</small>
 </p>
 
 # ℹ️ Description
@@ -30,15 +30,15 @@
 ## MVP User Stories?
 ### Have a queryable database of guests with full CRUD funcationality.
 
-1. As a hotel employee, I need to be able to see a list of all guests that have stayed at my hotel.
+~~1. As a hotel employee, I need to be able to see a list of all guests that have stayed at my hotel.~~
 
-2. As a hotel employee, I need to be able to see a record of which rooms a guest has stayed in. (I.E. Sarah Johnson stayed in room 207, room 319, and room 500.)
+~~2. As a hotel employee, I need to be able to see a record of which rooms a guest has stayed in. (I.E. Sarah Johnson stayed in room 207, room 319, and room 500.)~~
 
-3. As a hotel employee, I need to be able to track the revenue earned from an individual guest.
+~~3. As a hotel employee, I need to be able to track the revenue earned from an individual guest.~~
 
-4. As a hotel employee, I need to be able to search/query my list of guests in order to search by revenue earned, most nights stayed, etc.
+~~4. As a hotel employee, I need to be able to search/query my list of guests in order to search by revenue earned, most nights stayed, etc.~~
 
-5. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info can be viewed.
+~~5. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info can be viewed.~~
 
 ## Stretch Goals?
 
@@ -48,15 +48,15 @@
 
 3. User Roles - Admin can message application users. [define more roles?] harcode user roles?
 
-4. JS front end - adding interactivity with nav bar, etc. 
+~~4. JS front end - adding interactivity with nav bar, etc.~~
 
-5. Handle Identity Errors 
+~~5. Handle Identity Errors~~
 
-6. Sticky search/nav bar 
+~~6. Sticky search/nav bar~~
 
-7. Support links at bottom of page(s) - github link, email link
+~~7. Support links at bottom of page(s) - github link, email link~~
 
-8. Sort database with table links
+~~8. Sort database with table links~~
 
 9. Add more properties to Guest class, and update seed data
 
@@ -66,7 +66,18 @@
 
 12. DEPLOY!
 
+13. exporting database to excel
 
+
+-add Zahnens tight details table to Rooms
+-keep working on splash page and what to display
+-what charts and what data and update seed data last once we know
+  -yearly revenue by room
+  -yearly revenue by customer
+  -how many guests are checked in currently
+  -email guests by lifetime revenue
+  -email guests by most nights stayed
+-guest index's email, gh, and back to top button floating over content?
 
 
 # 🧑‍💻 Contributers
@@ -157,18 +168,21 @@ Once you have the file made, put in this code: <br>
 
 # ☎️ Support / Contact Details
 
-* Ben McFarland benrmcfarland@gmail.com
-* Kaila Sprague McRae
-* Max Brockbank
-* Zahnen Garner
-* Taylor Delph
+* [Ben McFarland](mailto:benrmcfarland@gmail.com)
+* [Kaila Sprague McRae](kaila.sprague@icloud.com)
+* [Max Brockbank](mailto:maxbrockbank1999@gmail.com)
+* [Zahnen Garner](mailto:zahnen@gmail.com)
+* [Taylor Delph](mailto:taylulzcode@gmail.com)
 
 # 🪲 Bugs / Issues
 
 | Date | Error | Handled | Solution |
 | :------------- | :------------- | :------------- | :------------- |
-| 01.25.2021 | "The entity type 'IdentityUserLogin<string>' requires a primary key to be defined." | true | add `base.OnModelCreating(builder)` to GuestlyContext.cs |
-| 01.25.2021 | "error CS0664: Literal of type double cannot be implicitly converted to type 'float'; use an 'F' suffix to create a literal of this type" | true | add "f" to float data, ie: `125.00f`|
+| 01.25.2021 | "The entity type 'IdentityUserLogin<string>' requires a primary key to be defined." | ✅  | add `base.OnModelCreating(builder)` to GuestlyContext.cs |
+| 01.25.2021 | "error CS0664: Literal of type double cannot be implicitly converted to type 'float'; use an 'F' suffix to create a literal of this type" | ✅  | add "f" to float data, ie: `125.00f`|
+| 01.26.2021 | login, register and create roles do not show errors | ✅  | add `@Html.ValidationSummary(false,"",new { @class = "text-danger"})` to Views and add `ModelState.AddModelError(string.Empty, error.Description)` to Controllers |
+| 01.26.2021 | when setting nav bar's position to "fixed" in css, nav covers page contents | ✅  | format through bootstrap by adding "sticky-top" to <nav> class`|
+| 01.27.2021 | sorting a table with jQuery is hot garbage | ✅ | add a <span class="data"> to <td> column, modify function to sort by span class instead of td tag |
 
 
 # ©️ License & Copyright

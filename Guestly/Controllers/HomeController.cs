@@ -49,5 +49,16 @@ namespace Guestly.Controllers
         }
         return price * counter;
       }
+      
+      public float PropertyLifeTimeRev()
+      {
+        var guestList = _db.Guests.ToList();
+        float rev = 0;
+        foreach(Guest guest in guestList)
+        {
+          rev += guest.LifetimeRevenue;
+        }
+        return rev;
+      }
     }
 }

@@ -59,7 +59,7 @@ namespace Guestly.Controllers
       if(!String.IsNullOrEmpty(nights))
       {
         var nightsInt = int.Parse(nights);
-        guestList = guestList.Where(entry=>entry.LifetimeNights == nightsInt);
+        guestList = guestList.Where(entry=>entry.LifetimeNights >= nightsInt);
       }
       
       return View(guestList.ToList());

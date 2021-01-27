@@ -83,6 +83,10 @@ namespace Guestly.Controllers
       {
         return RedirectToAction("ListRoles");
       }
+      foreach(var error in result.Errors)
+      {
+        ModelState.AddModelError("", error.Description);
+      }
       return View(model);
     }
 

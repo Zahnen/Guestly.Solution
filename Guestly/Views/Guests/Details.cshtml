@@ -47,6 +47,9 @@
           <tr>
             <th>Room Number</th>
             <th>Room Type</th>
+            <th>Arrival Date</th>
+            <th>Checkout Date</th>
+            <th>Edit?</th>
             <th>Nights</th>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
@@ -60,6 +63,10 @@
           <tr>
             <td>@Html.ActionLink($"{@join.Room.RoomNumber}", "Details", "Rooms", new { id = join.RoomId } )</td>
             <td>@join.Room.RoomType</td>
+            <td>@join.ArriveDate</td>
+            <td>@join.CheckoutDate</td>
+            <td>
+            @using (Html.BeginForm("RemoveRoom", "Guests"))
             <td>@join.Nights</td>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {

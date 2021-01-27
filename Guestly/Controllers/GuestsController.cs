@@ -136,9 +136,13 @@ namespace Guestly.Controllers
       guest.LifetimeRevenue += thisRevenue;
       guest.LifetimeNights += newNights;
       _db.Entry(guest).State = EntityState.Modified;
+      DateTime arriveDate = DateTime.Today;
+      DateTime checkoutDate = arriveDate.AddDays(newNights);
+      string arrive = arriveDate.ToString("d");
+      string checkout = checkoutDate.ToString("d");
       if (RoomId != 0)
       {
-        _db.GuestRoom.Add(new GuestRoom() {RoomId = RoomId, GuestId = guest.GuestId, Nights = newNights});
+        _db.GuestRoom.Add(new GuestRoom() {RoomId = RoomId, GuestId = guest.GuestId, ArriveDate = arrive, CheckoutDate = checkout});
       } 
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = guest.GuestId});

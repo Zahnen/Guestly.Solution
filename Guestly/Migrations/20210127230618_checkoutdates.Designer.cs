@@ -3,14 +3,16 @@ using System;
 using Guestly.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Guestly.Migrations
 {
     [DbContext(typeof(GuestlyContext))]
-    partial class GuestlyContextModelSnapshot : ModelSnapshot
+    [Migration("20210127230618_checkoutdates")]
+    partial class checkoutdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,10 +78,6 @@ namespace Guestly.Migrations
                     b.Property<int>("GuestId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("City");
-
-                    b.Property<string>("Country");
-
                     b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
@@ -92,8 +90,6 @@ namespace Guestly.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("State");
-
                     b.HasKey("GuestId");
 
                     b.ToTable("Guests");
@@ -102,782 +98,602 @@ namespace Guestly.Migrations
                         new
                         {
                             GuestId = 1,
-                            City = "Lynchburg",
-                            Country = "United States",
                             Email = "jd@email.com",
                             FirstName = "Jack",
                             LastName = "Daniel",
                             LifetimeNights = 2,
                             LifetimeRevenue = 250,
-                            PhoneNumber = "1223334444",
-                            State = "TN"
+                            PhoneNumber = "1223334444"
                         },
                         new
                         {
                             GuestId = 2,
-                            City = "Albuquerque",
-                            Country = "United States",
                             Email = "thisisdrew@email.com",
                             FirstName = "Drew",
                             LastName = "Mason",
                             LifetimeNights = 1,
                             LifetimeRevenue = 220,
-                            PhoneNumber = "5673451231",
-                            State = "NM"
+                            PhoneNumber = "5673451231"
                         },
                         new
                         {
                             GuestId = 3,
-                            City = "Arlington",
-                            Country = "United States",
                             Email = "matthewpatel@email.com",
                             FirstName = "Matthew",
                             LastName = "Patel",
                             LifetimeNights = 4,
                             LifetimeRevenue = 340,
-                            PhoneNumber = "192837465",
-                            State = "VA"
+                            PhoneNumber = "192837465"
                         },
                         new
                         {
                             GuestId = 4,
-                            City = "Boston",
-                            Country = "United States",
                             Email = "sethdoray@email.com",
                             FirstName = "Seth",
                             LastName = "Doray",
                             LifetimeNights = 5,
                             LifetimeRevenue = 750,
-                            PhoneNumber = "5033505003",
-                            State = "MA"
+                            PhoneNumber = "5033505003"
                         },
                         new
                         {
                             GuestId = 5,
-                            City = "Laredo",
-                            Country = "United States",
                             Email = "doublerich@email.com",
                             FirstName = "Richard",
                             LastName = "Richardson",
                             LifetimeNights = 3,
                             LifetimeRevenue = 450,
-                            PhoneNumber = "9717717771",
-                            State = "TX"
+                            PhoneNumber = "9717717771"
                         },
                         new
                         {
                             GuestId = 6,
-                            City = "Seattle",
-                            Country = "United States",
                             Email = "cal3b3dwards@email.com",
                             FirstName = "Caleb",
                             LastName = "Edwards",
                             LifetimeNights = 2,
                             LifetimeRevenue = 190,
-                            PhoneNumber = "2736498710",
-                            State = "WA"
+                            PhoneNumber = "2736498710"
                         },
                         new
                         {
                             GuestId = 7,
-                            City = "Karasuno",
-                            Country = "Japan",
                             Email = "volleyballrox@email.com",
                             FirstName = "Shoyo",
                             LastName = "Hinita",
                             LifetimeNights = 1,
                             LifetimeRevenue = 85,
-                            PhoneNumber = "1133224433",
-                            State = "Miyagi"
+                            PhoneNumber = "1133224433"
                         },
                         new
                         {
                             GuestId = 8,
-                            City = "Fresno",
-                            Country = "United States",
                             Email = "rileykeys@email.com",
                             FirstName = "Riley",
                             LastName = "Keys",
                             LifetimeNights = 4,
                             LifetimeRevenue = 340,
-                            PhoneNumber = "4252075079",
-                            State = "CA"
+                            PhoneNumber = "4252075079"
                         },
                         new
                         {
                             GuestId = 9,
-                            City = "Washington",
-                            Country = "United States",
                             Email = "heyyouparkit@email.com",
                             FirstName = "Parker",
                             LastName = "Wallenburger",
                             LifetimeNights = 5,
                             LifetimeRevenue = 475,
-                            PhoneNumber = "5555599999",
-                            State = "DC"
+                            PhoneNumber = "5555599999"
                         },
                         new
                         {
                             GuestId = 10,
-                            City = "Tulsa",
-                            Country = "United States",
                             Email = "mydognigel@email.com",
                             FirstName = "Nigel",
                             LastName = "Dogo",
                             LifetimeNights = 3,
                             LifetimeRevenue = 450,
-                            PhoneNumber = "3333333333",
-                            State = "OK"
+                            PhoneNumber = "3333333333"
                         },
                         new
                         {
                             GuestId = 11,
-                            City = "Tampa",
-                            Country = "United States",
                             Email = "rickiede@email.com",
                             FirstName = "Rick",
                             LastName = "Ellis",
                             LifetimeNights = 2,
                             LifetimeRevenue = 250,
-                            PhoneNumber = "4155558956",
-                            State = "FL"
+                            PhoneNumber = "4155558956"
                         },
                         new
                         {
                             GuestId = 12,
-                            City = "Greensboro",
-                            Country = "United States",
                             Email = "acathome@email.com",
                             FirstName = "Alex",
                             LastName = "Calder",
                             LifetimeNights = 1,
                             LifetimeRevenue = 95,
-                            PhoneNumber = "5065558989",
-                            State = "NC"
+                            PhoneNumber = "5065558989"
                         },
                         new
                         {
                             GuestId = 13,
-                            City = "Nashville",
-                            Country = "United States",
                             Email = "elbell@email.com",
                             FirstName = "Erica",
                             LastName = "Bell",
                             LifetimeNights = 4,
                             LifetimeRevenue = 440,
-                            PhoneNumber = "9715558562",
-                            State = "TN"
+                            PhoneNumber = "9715558562"
                         },
                         new
                         {
                             GuestId = 14,
-                            City = "Pittsburgh",
-                            Country = "United States",
                             Email = "denicolab@email.com",
                             FirstName = "Bobby",
                             LastName = "DeNicola",
                             LifetimeNights = 5,
                             LifetimeRevenue = 550,
-                            PhoneNumber = "7075559846",
-                            State = "PA"
+                            PhoneNumber = "7075559846"
                         },
                         new
                         {
                             GuestId = 15,
-                            City = "Riverside",
-                            Country = "United States",
                             Email = "emmunoz@email.com",
                             FirstName = "Ellie",
                             LastName = "Munoz",
                             LifetimeNights = 3,
                             LifetimeRevenue = 255,
-                            PhoneNumber = "5035556231",
-                            State = "CA"
+                            PhoneNumber = "5035556231"
                         },
                         new
                         {
                             GuestId = 16,
-                            City = "Toledo",
-                            Country = "United States",
                             Email = "jmcteller@email.com",
                             FirstName = "Joshua",
                             LastName = "McTeller",
                             LifetimeNights = 2,
                             LifetimeRevenue = 170,
-                            PhoneNumber = "4155558894",
-                            State = "OH"
+                            PhoneNumber = "4155558894"
                         },
                         new
                         {
                             GuestId = 17,
-                            City = "St. Paul",
-                            Country = "United States",
                             Email = "nnatell@email.com",
                             FirstName = "Natalie",
                             LastName = "Lass",
                             LifetimeNights = 1,
                             LifetimeRevenue = 110,
-                            PhoneNumber = "5415558896",
-                            State = "MN"
+                            PhoneNumber = "5415558896"
                         },
                         new
                         {
                             GuestId = 18,
-                            City = "Detroit",
-                            Country = "United States",
                             Email = "tridoublep@email.com",
                             FirstName = "Tripp",
                             LastName = "Ford",
                             LifetimeNights = 4,
                             LifetimeRevenue = 500,
-                            PhoneNumber = "5035552483",
-                            State = "MI"
+                            PhoneNumber = "5035552483"
                         },
                         new
                         {
                             GuestId = 19,
-                            City = "Cleveland",
-                            Country = "United States",
                             Email = "wilford@email.com",
                             FirstName = "Willie",
                             LastName = "Ford",
                             LifetimeNights = 1,
                             LifetimeRevenue = 110,
-                            PhoneNumber = "4155556472",
-                            State = "OH"
+                            PhoneNumber = "4155556472"
                         },
                         new
                         {
                             GuestId = 20,
-                            City = "Sacramento",
-                            Country = "United States",
                             Email = "katwoz@email.com",
                             FirstName = "Kaitlin",
                             LastName = "Wozniak",
                             LifetimeNights = 3,
                             LifetimeRevenue = 375,
-                            PhoneNumber = "5035558258",
-                            State = "CA"
+                            PhoneNumber = "5035558258"
                         },
                         new
                         {
                             GuestId = 21,
-                            City = "San Antonio",
-                            Country = "United States",
                             Email = "madalynl11@email.com",
                             FirstName = "Madalyn",
                             LastName = "Lathem",
                             LifetimeNights = 2,
                             LifetimeRevenue = 220,
-                            PhoneNumber = "6514553861",
-                            State = "TX"
+                            PhoneNumber = "6514553861"
                         },
                         new
                         {
                             GuestId = 22,
-                            City = "Las Vegas",
-                            Country = "United States",
                             Email = "sean.mercado04@email.com",
                             FirstName = "Sean",
                             LastName = "Mercado",
                             LifetimeNights = 1,
                             LifetimeRevenue = 125,
-                            PhoneNumber = "5018988936",
-                            State = "NV"
+                            PhoneNumber = "5018988936"
                         },
                         new
                         {
                             GuestId = 23,
-                            City = "New Orleans",
-                            Country = "United States",
                             Email = "viktoriaaksnes@email.com",
                             FirstName = "Viktoria",
                             LastName = "Nielsen",
                             LifetimeNights = 4,
                             LifetimeRevenue = 440,
-                            PhoneNumber = "7843247148",
-                            State = "LA"
+                            PhoneNumber = "7843247148"
                         },
                         new
                         {
                             GuestId = 24,
-                            City = "Garland",
-                            Country = "United States",
                             Email = "now@email.com",
                             FirstName = "Nao",
                             LastName = "Oka",
                             LifetimeNights = 5,
                             LifetimeRevenue = 425,
-                            PhoneNumber = "3193198947",
-                            State = "TX"
+                            PhoneNumber = "3193198947"
                         },
                         new
                         {
                             GuestId = 25,
-                            City = "Montgomery",
-                            Country = "United States",
                             Email = "bernie@mittens.com",
                             FirstName = "Bernie",
                             LastName = "Hancock",
                             LifetimeNights = 3,
                             LifetimeRevenue = 255,
-                            PhoneNumber = "2778649180",
-                            State = "AB"
+                            PhoneNumber = "2778649180"
                         },
                         new
                         {
                             GuestId = 26,
-                            City = "Oakland",
-                            Country = "United States",
                             Email = "pratte16@email.com",
                             FirstName = "Eleanor",
                             LastName = "Pratte",
                             LifetimeNights = 2,
                             LifetimeRevenue = 220,
-                            PhoneNumber = "4529407334",
-                            State = "CA"
+                            PhoneNumber = "4529407334"
                         },
                         new
                         {
                             GuestId = 27,
-                            City = "Boise",
-                            Country = "United States",
                             Email = "aurorabergen@email.com",
                             FirstName = "Aurora",
                             LastName = "Berg",
                             LifetimeNights = 1,
                             LifetimeRevenue = 110,
-                            PhoneNumber = "1338214188",
-                            State = "ID"
+                            PhoneNumber = "1338214188"
                         },
                         new
                         {
                             GuestId = 28,
-                            City = "The Shire",
-                            Country = "Middle Earth",
                             Email = "mr.underhill@email.com",
                             FirstName = "Frodo",
                             LastName = "Baggins",
                             LifetimeNights = 4,
                             LifetimeRevenue = 380,
-                            PhoneNumber = "5385970949",
-                            State = "Eriador"
+                            PhoneNumber = "5385970949"
                         },
                         new
                         {
                             GuestId = 29,
-                            City = "Tokyo",
-                            Country = "Japan",
                             Email = "takanoart@email.com",
                             FirstName = "Aya",
                             LastName = "Takano",
                             LifetimeNights = 5,
                             LifetimeRevenue = 625,
-                            PhoneNumber = "2969397018",
-                            State = "Tokyo"
+                            PhoneNumber = "2969397018"
                         },
                         new
                         {
                             GuestId = 30,
-                            City = "Chula Vista",
-                            Country = "United States",
                             Email = "deckard.rick@email.com",
                             FirstName = "Rick",
                             LastName = "Deckard",
                             LifetimeNights = 3,
                             LifetimeRevenue = 450,
-                            PhoneNumber = "6192533993",
-                            State = "CA"
+                            PhoneNumber = "6192533993"
                         },
                         new
                         {
                             GuestId = 31,
-                            City = "Vancouver",
-                            Country = "Canada",
                             Email = "happy_golfmore@email.com",
                             FirstName = "Happy",
                             LastName = "Gilmore",
                             LifetimeNights = 2,
                             LifetimeRevenue = 190,
-                            PhoneNumber = "1234578900",
-                            State = "BC"
+                            PhoneNumber = "1234578900"
                         },
                         new
                         {
                             GuestId = 32,
-                            City = "San Diego",
-                            Country = "United States",
                             Email = "joycesummers@email.com",
                             FirstName = "Joyce",
                             LastName = "Summers",
                             LifetimeNights = 1,
                             LifetimeRevenue = 85,
-                            PhoneNumber = "1987899876",
-                            State = "CA"
+                            PhoneNumber = "1987899876"
                         },
                         new
                         {
                             GuestId = 33,
-                            City = "Durham",
-                            Country = "United States",
                             Email = "KHarm123@email.com",
                             FirstName = "Harmony",
                             LastName = "Kendall",
                             LifetimeNights = 4,
                             LifetimeRevenue = 340,
-                            PhoneNumber = "1465768945",
-                            State = "NC"
+                            PhoneNumber = "1465768945"
                         },
                         new
                         {
                             GuestId = 34,
-                            City = "Reno",
-                            Country = "United States",
                             Email = "JennyCal@email.com",
                             FirstName = "Jenny",
                             LastName = "Calendar",
                             LifetimeNights = 5,
                             LifetimeRevenue = 475,
-                            PhoneNumber = "2343546754",
-                            State = "NV"
+                            PhoneNumber = "2343546754"
                         },
                         new
                         {
                             GuestId = 35,
-                            City = "Long Beach",
-                            Country = "United States",
                             Email = "anointed1_66@email.com",
                             FirstName = "Annointed",
                             LastName = "One",
                             LifetimeNights = 3,
                             LifetimeRevenue = 450,
-                            PhoneNumber = "6894562341",
-                            State = "CA"
+                            PhoneNumber = "6894562341"
                         },
                         new
                         {
                             GuestId = 36,
-                            City = "Portland",
-                            Country = "United States",
                             Email = "H.Sums@email.com",
                             FirstName = "Hank",
                             LastName = "Summers",
                             LifetimeNights = 2,
                             LifetimeRevenue = 300,
-                            PhoneNumber = "1029384234",
-                            State = "OR"
+                            PhoneNumber = "1029384234"
                         },
                         new
                         {
                             GuestId = 37,
-                            City = "Atlanta",
-                            Country = "United States",
                             Email = "jessekmcjay@email.com",
                             FirstName = "Jesse",
                             LastName = "McNally",
                             LifetimeNights = 1,
                             LifetimeRevenue = 85,
-                            PhoneNumber = "4675823123",
-                            State = "GA"
+                            PhoneNumber = "4675823123"
                         },
                         new
                         {
                             GuestId = 38,
-                            City = "Adelaide",
-                            Country = "South Africa",
                             Email = "JonLev@email.com",
                             FirstName = "Jonathan",
                             LastName = "Levinson",
                             LifetimeNights = 4,
                             LifetimeRevenue = 440,
-                            PhoneNumber = "9858673452",
-                            State = "Eastern Cape"
+                            PhoneNumber = "9858673452"
                         },
                         new
                         {
                             GuestId = 39,
-                            City = "ekuPhakameni",
-                            Country = "South Africa",
                             Email = "eRayne@email.com",
                             FirstName = "Ethan",
                             LastName = "Rayne",
                             LifetimeNights = 5,
                             LifetimeRevenue = 625,
-                            PhoneNumber = "2384655432",
-                            State = "KwaZulu-Natal"
+                            PhoneNumber = "2384655432"
                         },
                         new
                         {
                             GuestId = 40,
-                            City = "Hillcrest",
-                            Country = "South Africa",
                             Email = "gottahavefaith@email.com",
                             FirstName = "Faith",
                             LastName = "Lehane",
                             LifetimeNights = 3,
                             LifetimeRevenue = 330,
-                            PhoneNumber = "2349853456",
-                            State = "KwaZulu-Natal"
+                            PhoneNumber = "2349853456"
                         },
                         new
                         {
                             GuestId = 41,
-                            City = "Montpellier",
-                            Country = "France",
                             Email = "notTaratino@email.com",
                             FirstName = "Quentin",
                             LastName = "Travers",
                             LifetimeNights = 12,
                             LifetimeRevenue = 1020,
-                            PhoneNumber = "3458768676",
-                            State = "Occitanie"
+                            PhoneNumber = "3458768676"
                         },
                         new
                         {
                             GuestId = 42,
-                            City = "Nantes",
-                            Country = "France",
                             Email = "scott!@email.com",
                             FirstName = "Scott",
                             LastName = "Hope",
                             LifetimeNights = 1,
                             LifetimeRevenue = 150,
-                            PhoneNumber = "5436667534",
-                            State = "Pays de la Loire"
+                            PhoneNumber = "5436667534"
                         },
                         new
                         {
                             GuestId = 43,
-                            City = "Nice",
-                            Country = "France",
                             Email = "asYouWish@email.com",
                             FirstName = "Wesley",
                             LastName = "Pryce",
                             LifetimeNights = 4,
                             LifetimeRevenue = 600,
-                            PhoneNumber = "2345674564",
-                            State = "Cote d'Azure"
+                            PhoneNumber = "2345674564"
                         },
                         new
                         {
                             GuestId = 44,
-                            City = "Marseille",
-                            Country = "France",
                             Email = "PromQueen@email.com",
                             FirstName = "Cordelia",
                             LastName = "Chase",
                             LifetimeNights = 5,
                             LifetimeRevenue = 475,
-                            PhoneNumber = "5543234321",
-                            State = "Bouches-du-Rhone"
+                            PhoneNumber = "5543234321"
                         },
                         new
                         {
                             GuestId = 45,
-                            City = "Paris",
-                            Country = "France",
                             Email = "OnlyBuffyWillJudge@email.com",
                             FirstName = "Buffy",
                             LastName = "Summers",
                             LifetimeNights = 13,
                             LifetimeRevenue = 1105,
-                            PhoneNumber = "8778887634",
-                            State = "Ile-de-France"
+                            PhoneNumber = "8778887634"
                         },
                         new
                         {
                             GuestId = 46,
-                            City = "Istanbul",
-                            Country = "Turkey",
                             Email = "Bookguy@email.com",
                             FirstName = "Rupert",
                             LastName = "Giles",
                             LifetimeNights = 2,
                             LifetimeRevenue = 170,
-                            PhoneNumber = "4756566879",
-                            State = "Istanbul"
+                            PhoneNumber = "4756566879"
                         },
                         new
                         {
                             GuestId = 47,
-                            City = "Ankara",
-                            Country = "Turkey",
                             Email = "witchStuff@email.com",
                             FirstName = "Willow",
                             LastName = "Rosenberg",
                             LifetimeNights = 1,
                             LifetimeRevenue = 95,
-                            PhoneNumber = "7998884475",
-                            State = "Ankara"
+                            PhoneNumber = "7998884475"
                         },
                         new
                         {
                             GuestId = 48,
-                            City = "Izmir",
-                            Country = "Turkey",
                             Email = "jokesDotCom@email.com",
                             FirstName = "Xander",
                             LastName = "Harris",
                             LifetimeNights = 4,
                             LifetimeRevenue = 600,
-                            PhoneNumber = "3334958679",
-                            State = "Izmir"
+                            PhoneNumber = "3334958679"
                         },
                         new
                         {
                             GuestId = 49,
-                            City = "Bursa",
-                            Country = "Turkey",
                             Email = "BadBois@email.com",
                             FirstName = "William",
                             LastName = "Pratt",
                             LifetimeNights = 5,
                             LifetimeRevenue = 625,
-                            PhoneNumber = "4445556634",
-                            State = "Bursa"
+                            PhoneNumber = "4445556634"
                         },
                         new
                         {
                             GuestId = 50,
-                            City = "Adana",
-                            Country = "Turkey",
                             Email = "ImaMouse@email.com",
                             FirstName = "Amy",
                             LastName = "Madison",
                             LifetimeNights = 3,
                             LifetimeRevenue = 285,
-                            PhoneNumber = "2873345543",
-                            State = "Adana"
+                            PhoneNumber = "2873345543"
                         },
                         new
                         {
                             GuestId = 51,
-                            City = "Milan",
-                            Country = "Italy",
                             Email = "TwoNewtons@email.com",
                             FirstName = "Cassie",
                             LastName = "Newton",
                             LifetimeNights = 2,
                             LifetimeRevenue = 220,
-                            PhoneNumber = "9987896786",
-                            State = "Lombardy"
+                            PhoneNumber = "9987896786"
                         },
                         new
                         {
                             GuestId = 52,
-                            City = "Naples",
-                            Country = "Italy",
                             Email = "Alternate@email.com",
                             FirstName = "Chao",
                             LastName = "Ahn",
                             LifetimeNights = 1,
                             LifetimeRevenue = 110,
-                            PhoneNumber = "6675844776",
-                            State = "Campania"
+                            PhoneNumber = "6675844776"
                         },
                         new
                         {
                             GuestId = 53,
-                            City = "Turin",
-                            Country = "Italy",
                             Email = "SeattleResident@email.com",
                             FirstName = "Count",
                             LastName = "Dracula",
                             LifetimeNights = 4,
                             LifetimeRevenue = 340,
-                            PhoneNumber = "9980987867",
-                            State = "Piedmont"
+                            PhoneNumber = "9980987867"
                         },
                         new
                         {
                             GuestId = 54,
-                            City = "Palermo",
-                            Country = "Italy",
                             Email = "militarystuff@email.com",
                             FirstName = "Forrest",
                             LastName = "Gates",
                             LifetimeNights = 5,
                             LifetimeRevenue = 425,
-                            PhoneNumber = "8009978865",
-                            State = "Cicily"
+                            PhoneNumber = "8009978865"
                         },
                         new
                         {
                             GuestId = 55,
-                            City = "Rome",
-                            Country = "Italy",
                             Email = "Indiacohen@email.com",
                             FirstName = "India",
                             LastName = "Cohen",
                             LifetimeNights = 3,
                             LifetimeRevenue = 330,
-                            PhoneNumber = "9078788986",
-                            State = "Lazio"
+                            PhoneNumber = "9078788986"
                         },
                         new
                         {
                             GuestId = 56,
-                            City = "Peristeri",
-                            Country = "Greece",
                             Email = "janicePenshaw@email.com",
                             FirstName = "Janice",
                             LastName = "Penshaw",
                             LifetimeNights = 2,
                             LifetimeRevenue = 250,
-                            PhoneNumber = "6678745632",
-                            State = "Attica"
+                            PhoneNumber = "6678745632"
                         },
                         new
                         {
                             GuestId = 57,
-                            City = "Larissa",
-                            Country = "Greece",
                             Email = "KathyNewman@email.com",
                             FirstName = "Kathy",
                             LastName = "Newman",
                             LifetimeNights = 1,
                             LifetimeRevenue = 110,
-                            PhoneNumber = "1122212345",
-                            State = "Thessaly"
+                            PhoneNumber = "1122212345"
                         },
                         new
                         {
                             GuestId = 58,
-                            City = "Patras",
-                            Country = "Greece",
                             Email = "KendraYoung@email.com",
                             FirstName = "Kendra",
                             LastName = "Young",
                             LifetimeNights = 4,
                             LifetimeRevenue = 500,
-                            PhoneNumber = "4645534233",
-                            State = "Western Greece"
+                            PhoneNumber = "4645534233"
                         },
                         new
                         {
                             GuestId = 59,
-                            City = "Thessaloniki",
-                            Country = "Greece",
                             Email = "BeelzebubRules@email.com",
                             FirstName = "Hades",
                             LastName = "Beelzebub",
                             LifetimeNights = 5,
                             LifetimeRevenue = 550,
-                            PhoneNumber = "6666666666",
-                            State = "Macedonia"
+                            PhoneNumber = "6666666666"
                         },
                         new
                         {
                             GuestId = 60,
-                            City = "Jersey City",
-                            Country = "United States",
                             Email = "TheJenny@email.com",
                             FirstName = "Jenny",
                             LastName = "Jenny",
                             LifetimeNights = 3,
                             LifetimeRevenue = 375,
-                            PhoneNumber = "2018675309",
-                            State = "NJ"
+                            PhoneNumber = "2018675309"
                         });
                 });
 

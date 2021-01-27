@@ -20,16 +20,34 @@ namespace Guestly.Controllers
       public ActionResult Index()
       {
       List<DataPoint> dataPoints = new List<DataPoint>{
-				new DataPoint(10, 22, label:"King"),
-				new DataPoint(20, 36, label:"Queen"),
-				new DataPoint(30, 42, label:"Full"),
-				new DataPoint(40, 51, label:"Suite"),
-				new DataPoint(50, 40, label:"Baby"),
+				new DataPoint(40, RoomRevCalc("Suite"), label:"Suite"),
+				new DataPoint(10, RoomRevCalc("King"), label:"King"),
+				new DataPoint(20, RoomRevCalc("Queen"), label:"Queen"),
+				new DataPoint(30, RoomRevCalc("Full"), label:"Full"),
+				new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
       };
 
 			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
         return View();
       }
-
+      
+      public float RoomRevCalc(string roomType)
+      {
+        var roomsQuery = _db.Rooms.AsQueryable();
+        var joinQuery = _db.GuestRoom.AsQueryable();
+        var totalRoomsOfType = roomsQuery.Where(entry=>entry.RoomType == roomType).ToList();
+        var price = _db.Rooms.FirstOrDefault(entry=>entry.RoomType == roomType).Price;
+        var counter = 0;
+        for(int i=0; i<totalRoomsOfType.Count; i++)
+        {
+          var roomOfTypeId = totalRoomsOfType[i].RoomId;
+          var staysOfType = joinQuery.Where(entry=>entry.RoomId == roomOfTypeId);
+          foreach(GuestRoom stay in staysOfType)
+          {
+            counter += stay.Nights;
+          }
+        }
+        return price * counter;
+      }
     }
 }

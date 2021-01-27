@@ -32,6 +32,16 @@
   border-radius: 50%;
 }
 
+.tile {  
+  width: 100%;
+  margin-left: 30%;
+  display: inline-block;
+	box-sizing: border-box;
+	padding: 20px;
+  margin-bottom: 10px;
+  background: #d3d3d3;
+}
+
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

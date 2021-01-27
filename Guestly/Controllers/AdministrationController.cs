@@ -9,7 +9,7 @@ using Guestly.ViewModels;
 
 namespace Guestly.Controllers
 {
-  //[Authorize]
+  [Authorize(Roles = "Admin")]
   public class AdministrationController: Controller
   {
     private readonly RoleManager<IdentityRole> roleManager;

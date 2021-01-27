@@ -5,6 +5,51 @@
 @using Guestly.ViewModels
 @model RegisterViewModel
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Register</h5>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+            <div class="card-body">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  @Html.LabelFor(user => user.Email)
+                  @Html.TextBoxFor(user=> user.Email, new { @class = "form-control" })
+                </div>
+                  @Html.ValidationSummary(false,"",new { @class = "text-danger"})
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  @Html.Label("First Name")
+                  @Html.TextBoxFor(user=> user.FirstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-6">
+                  @Html.Label("Last Name")
+                  @Html.TextBoxFor(user=> user.LastName, new { @class = "form-control" })
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  @Html.LabelFor(user=> user.Password)
+                  @Html.PasswordFor(user=> user.Password, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-6">
+                  @Html.LabelFor(user=> user.ConfirmPassword)
+                  @Html.PasswordFor(user=> user.ConfirmPassword, new { @class = "form-control" })
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Register</button>
+            }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="card custom-card">
   <div class="card-header">
     <h1 class="display-4">Register as a new user</h1>
@@ -41,7 +86,7 @@
     </div>
   </div>
   <div class="card-footer">
-    <input type="submit" value="Register" class="btn btn-outline-secondary" />
+    <input type="submit" value="Register" class="btn btn-outline-warning text-secondary" />
   </div>
   }
 </div>

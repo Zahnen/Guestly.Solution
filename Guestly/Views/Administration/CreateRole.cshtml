@@ -9,7 +9,7 @@
 <div class="card">
 
   <div class = "card-header">
-    <h1>Register a new user</h1>
+    <h1>Register a User Role</h1>
   </div>  
 
   @using (Html.BeginForm("CreateRole", "Administration", FormMethod.Post))
@@ -27,6 +27,29 @@
       @Html.ActionLink("Cancel", "ListRoles", "Administration", null, new { @class="btn btn-outline-warning text-secondary" })
     </div>  
   } 
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          @using (Html.BeginForm("CreateRole", "Administration", FormMethod.Post))
+          {
+            <div class="card-body">
+              <div class="form-group">
+                @Html.Label("Role Name")
+                @Html.TextBoxFor(user=> user.RoleName, new { @class="form-control"})
+              </div> 
+              @Html.ValidationSummary(false,"",new { @class = "text-danger"})
+            </div>
+              <input type="submit" value="Create Role" class="btn btn-outline-warning text-dark" />
+              @Html.ActionLink("Cancel", "ListRoles", "Administration", null, new { @class="btn btn-outline-warning text-secondary" })
+          } 
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

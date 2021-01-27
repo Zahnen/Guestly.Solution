@@ -7,37 +7,185 @@
 
 @* All Guests = Model.AllGuests
 All Rooms = Model.AllRooms  *@
-
-<div id="chartContainer">
-  <script type="text/javascript">
-
-    window.onload = function () {
-      var chart = new CanvasJS.Chart("chartContainer", {
-        theme: "light2",
-        animationEnabled: true,
-        title: {
-          text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
-        },
-        toolTip:{
+    <script type="text/javascript">
+      window.setTimeout(function () {
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+          theme: "light2",
           animationEnabled: true,
-        },
-        subtitles: [
-          { text: "Broken Down By Room Type" }
-        ],
-        data: [
-          {
+          title: {
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+          },
+          toolTip:{
+            animationEnabled: true,
+          },
+          subtitles: [
+            { text: "Broken Down By Room Type" }
+          ],
+          data: [
+            {
+              type: "pie",
+            startAngle: 160,
+            toolTipContent: "<b>{label}</b>: ${y}",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+          }
+          ]
+        });
+        var chart2 = new CanvasJS.Chart("chartContainer2", {
+          theme: "light2",
+          animationEnabled: true,
+          title: {
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+          },
+          toolTip:{
+            animationEnabled: true,
+          },
+          subtitles: [
+            { text: "Broken Down By Room Type" }
+          ],
+          data: [
+            {
+            type: "bar",
+            startAngle: 160,
+            toolTipContent: "<b>{label}</b>: ${y}",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+          }
+          ]
+        });
+        chart1.render();
+        chart2.render();
+      }, 3000);
+
+      function chartsGroup1(){
+        var chartOne = new CanvasJS.Chart("chartContainer1", {
+          theme: "light2",
+          animationEnabled: true,
+          title: {
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+          },
+          toolTip:{
+            animationEnabled: true,
+          },
+          subtitles: [
+            { text: "Broken Down By Room Type" }
+          ],
+          data: [
+            {
             type: "pie",
-          startAngle: 160,
-          toolTipContent: "<b>{label}</b>: ${y}",
-          indexLabel: "{label} - ${y}",
-          dataPoints: @Html.Raw(ViewBag.DataPoints)
+            startAngle: 160,
+            toolTipContent: "<b>{label}</b>: ${y}",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+          }
+          ]
+        });
+        var chartTwo = new CanvasJS.Chart("chartContainer2", {
+          theme: "light2",
+          animationEnabled: true,
+          title: {
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+          },
+          toolTip:{
+            animationEnabled: true,
+          },
+          subtitles: [
+            { text: "Broken Down By Room Type" }
+          ],
+          data: [
+            {
+            type: "bar",
+            startAngle: 160,
+            toolTipContent: "<b>{label}</b>: ${y}",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+          }
+          ]
+        });
+        $("#group2").hide();
+        chartOne.render();
+        chartTwo.render();
+      };
+
+      function chartsGroup2(){
+        var chart3 = new CanvasJS.Chart("chartContainer3", {
+          theme: "light2",
+          animationEnabled: true,
+          title: {
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+          },
+          toolTip:{
+            animationEnabled: true,
+          },
+          subtitles: [
+            { text: "Broken Down By Room Type" }
+          ],
+          data: [
+            {
+            type: "line",
+            startAngle: 160,
+            toolTipContent: "<b>{label}</b>: ${y}",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+          }
+          ]
+        });
+        var chart4 = new CanvasJS.Chart("chartContainer4", {
+          theme: "light2",
+          animationEnabled: true,
+          title: {
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+          },
+          toolTip:{
+            animationEnabled: true,
+          },
+          subtitles: [
+            { text: "Broken Down By Room Type" }
+          ],
+          data: [
+            {
+            type: "column",
+            startAngle: 160,
+            toolTipContent: "<b>{label}</b>: ${y}",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+          }
+          ]
+        });
+        $("#group2").show();
+        chart3.render();
+        chart4.render();
+      };
+      let callOne = false;
+      function call(){
+        
+        if(callOne){
+          chartsGroup1();
+          callOne = false;
+        } else {
+          chartsGroup2();
+          callOne = true;
         }
-        ]
-      });
-      chart.render();
-    };
-  </script>
-</div>
+      }
+    </script>
+
+    <button class="btn btn-warning" onclick="call()" style="color:white; margin-top:20px;"> < </button>
+
+    
+    <button class="btn btn-warning" onclick="call()" style="color:white; float: right; margin-top:20px;"> > </button>
+
+    <div class="row" id="group1">
+      <div class = "col-lg-6">
+        <div id="chartContainer1"></div>
+      </div>
+      <div class = "col-lg-6">
+        <div id="chartContainer2"></div>
+      </div>
+    </div>
+    
+    <div class="row" id="group2" >
+      <div class = "col-lg-6">
+        <div id="chartContainer3"></div>
+      </div>
+      <div class = "col-lg-6">
+        <div id="chartContainer4"></div>
+      </div>
+    </div>
+    </div>
 @*// <div class="row">
 //   <div class="col-6">
 //     <div class="card" style="width: 18rem;">

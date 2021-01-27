@@ -1,6 +1,12 @@
 #navBar {
   background-color: #E8AA24;
 }
+nav {
+  margin-bottom: 3%;
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
 
 /* .navbar {
   position: fixed;
@@ -9,8 +15,15 @@
   z-index: 10;
 } */
 
-.container {
-  margin-top: 5%;
+.infoTitle {
+  display:inline-block;margin-right:10px;
+} 
+.infoBlock {
+  display:inline-block;
+} 
+
+#guestName {
+  margin-top: 8%;
 }
 
 .canvasjs-chart-credit {
@@ -20,16 +33,18 @@
 #footer-links-left {
   position: fixed;
   bottom: 5%;
-  left: 5%;
+  left: 25px;
 } 
 
 #footer-links-right {
   position: fixed;
   bottom: 5%;
-  right: 5%;
+  right: 45px;
 }
 .footer-image {
   border-radius: 50%;
+  height: auto;
+  width: 35px;
 }
 
 .tile {  
@@ -45,5 +60,22 @@
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #footer-links-left {
+    position: static ;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  } 
+  
+  #footer-links-right {
+    position: static;
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
 }

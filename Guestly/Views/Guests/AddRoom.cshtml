@@ -4,25 +4,65 @@
 
 @model Guestly.Models.Guest
 
-<h1>Record a new Guest Stay</h1>
+<h1>Add A Stay Record for @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
 <hr>
-<h3>What room did this guest stay in?</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          @using (Html.BeginForm())
+          {
+            <div class="card-body">
+              @Html.HiddenFor(model => model.GuestId)
+              @Html.HiddenFor(model => model.FirstName)
+              @Html.HiddenFor(model => model.LastName)
+              @Html.HiddenFor(model => model.PhoneNumber)
+              @Html.HiddenFor(model => model.Email)
+              @Html.HiddenFor(model => model.LifetimeNights)
+              @Html.HiddenFor(model => model.LifetimeRevenue)
+              <div class = "form-group">
+                @Html.Label("Select the room number:")
+                @Html.DropDownList("RoomId", (SelectList)ViewBag.RoomId, "Select Room Number", new { @class = "form-control" })
+              </div>
+              <div class ="form-group">
+                @Html.Label("How many nights did the guest stay?")
+                @Html.TextBox("newNights","", new {@class="form-control",@required="required"})
+              </div>
+            </div>
+              <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.GuestId)
-  @Html.HiddenFor(model => model.FirstName)
-  @Html.HiddenFor(model => model.LastName)
-  @Html.HiddenFor(model => model.PhoneNumber)
-  @Html.HiddenFor(model => model.Email)
-  @Html.HiddenFor(model => model.LifetimeNights)
-  @Html.HiddenFor(model => model.LifetimeRevenue)
-
-  @Html.Label("Select the room number:")
-  @Html.DropDownList("RoomId")
-
-  @Html.Label("How many nights is this guest staying?")
-  @Html.TextBox("newNights")
-
-  <input type="submit" value="Save" />
-}
+<div class="card">
+  <div class="card-header">
+    <h3>What room did this guest stay in?</h3>
+  </div>
+  @using (Html.BeginForm())
+  {
+    <div class="card-body">
+      @Html.HiddenFor(model => model.GuestId)
+      @Html.HiddenFor(model => model.FirstName)
+      @Html.HiddenFor(model => model.LastName)
+      @Html.HiddenFor(model => model.PhoneNumber)
+      @Html.HiddenFor(model => model.Email)
+      @Html.HiddenFor(model => model.LifetimeNights)
+      @Html.HiddenFor(model => model.LifetimeRevenue)
+      <div class = "form-group">
+        @Html.Label("Select the room number:")
+        @Html.DropDownList("RoomId", (SelectList)ViewBag.RoomId, "Select Room Number", new { @class = "form-control" })
+      </div>
+      <div class ="form-group">
+        @Html.Label("How many nights is this guest staying?")
+        @Html.TextBox("newNights","", new {@class="form-control",@required="required"})
+      </div>
+    </div>
+    <div class = "card-footer">
+      <input type="submit" value="Save" class= "btn btn-outline-warning text-secondary"/>
+      @Html.ActionLink("Cancel", "Details", "Guests", new {id = Model.GuestId}, new {@class="btn btn-outline-warning text-secondary"})
+    </div>
+  }

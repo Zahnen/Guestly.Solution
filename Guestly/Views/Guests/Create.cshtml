@@ -5,8 +5,6 @@
 @using Guestly.ViewModels;
 @model Guestly.ViewModels.CreateGuestAndStayViewModel;
 
-
-
 <div class="card">
     <div class = "card-header">
     <h1>Add a new guest</h1>
@@ -14,13 +12,15 @@
     @using (Html.BeginForm())
     {
     <div class="card-body">
-      <div class="form-group">
-        @Html.Label("First Name:")
-        @Html.TextBoxFor(model => model.FirstName, new { @class="form-control", placeholder = "First Name", required = "required"})
-      </div>
-      <div class="form-group">
-        @Html.Label("Last Name:")
-        @Html.TextBoxFor(model => model.LastName, new { @class="form-control", placeholder = "Last Name", required = "required"})
+      <div class="row">
+        <div class="form-group col-md-6">
+          @Html.Label("First Name:")
+          @Html.TextBoxFor(model => model.FirstName, new { @class="form-control", placeholder = "First Name", required = "required"})
+        </div>
+        <div class="form-group col-md-6">
+          @Html.Label("Last Name:")
+          @Html.TextBoxFor(model => model.LastName, new { @class="form-control", placeholder = "Last Name", required = "required"})
+        </div>
       </div>
       <div class="form-group">
         @Html.Label("Guest Email:")
@@ -30,6 +30,22 @@
         @Html.Label("Guest Phone Number:")
         @Html.TextBoxFor(model => model.PhoneNumber, new { @class="form-control", placeholder = "Guest Phone Number", required = "required"})
       </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          @Html.Label("City")
+          @Html.TextBoxFor(model => model.City, new{@class="form-control", placeholder = "Guest City", required = "required"})
+        </div>
+
+        <div class="form-group col-md-6">
+          @Html.Label("State/Province")
+          @Html.TextBoxFor(model => model.State, new{@class="form-control", placeholder = "Guest State/Province", required = "required"})
+        </div>
+      </div>
+
+        <div class="form-group">
+          @Html.Label("Country")
+          @Html.TextBoxFor(model => model.Country, new{@class="form-control", placeholder = "Guest Country", required = "required"})
+        </div>
 
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="add_entry" name="add_entry">
@@ -45,12 +61,13 @@
           @Html.Label("Nights Stayed")
           @Html.TextBoxFor(model => model.Nights, new{@class="form-control", type="number"})
         </div>
+
       </div>
     </div>   
 
 
     <div class="card-footer">
-      <input type="submit" value="Add new Guest" class="btn btn-outline-secondary" />
+      <input type="submit" value="Add new Guest" class="btn btn-outline-warning text-secondary" />
     </div>
     }
 </div>

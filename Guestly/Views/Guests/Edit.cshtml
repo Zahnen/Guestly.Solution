@@ -5,9 +5,9 @@
 @model Guestly.Models.Guest
 
 <h1>Edit</h1>
-
+<hr>
 <h3>Edit @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)'s profile:</h3>
-
+<hr>
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.GuestId)
@@ -16,18 +16,27 @@
 
   @Html.LabelFor(model => model.FirstName)
   @Html.EditorFor(model => model.FirstName)
-
+<br>
   @Html.LabelFor(model => model.LastName)
   @Html.EditorFor(model => model.LastName)
-
+<br>
   @Html.LabelFor(model => model.PhoneNumber)
   @Html.EditorFor(model => model.PhoneNumber)
-
+<br>
   @Html.LabelFor(model => model.Email)
   @Html.EditorFor(model => model.Email)
-
+<br>
   @Html.LabelFor(model => model.FirstName)
   @Html.EditorFor(model => model.FirstName)
-
+<br>
+  @Html.LabelFor(model => model.City)
+  @Html.EditorFor(model => model.City)
+<br>
+  @Html.Label("State / Province")
+  @Html.EditorFor(model => model.State)
+<br>
+  @Html.LabelFor(model => model.Country)
+  @Html.EditorFor(model => model.Country)
+<br>
   <input type="submit" value="Save" />
 }

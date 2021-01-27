@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Guestly.Models.Room
+
+<h1>Edit price</h1>
+<hr>
+<h3>Room number @Html.DisplayFor(model => model.RoomNumber)</h3>
+<hr>
+
+@using(Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.RoomId)
+  @Html.HiddenFor(model => model.RoomNumber)
+  @Html.HiddenFor(model => model.RoomType)
+
+  @Html.Label("Room price:")
+  @Html.TextBoxFor(model => model.Price)
+  <input type="submit" value="Save" />
+}

@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Guestly.Controllers
 {
+  [Authorize]
   public class RoomsController : Controller
   {
 
@@ -27,7 +28,7 @@ namespace Guestly.Controllers
       List<Room> model = _db.Rooms.ToList();
       return View(model);
     }
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public ActionResult Create()
     {
       return View();
@@ -50,7 +51,7 @@ namespace Guestly.Controllers
       return View(thisRoom);
     }
 
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public ActionResult Edit(int id)
     {
       var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == id);
@@ -65,6 +66,7 @@ namespace Guestly.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize(Roles = "Admin")]
     public ActionResult AddGuest(int id)
     {
       var thisRoom = _db.Rooms.FirstOrDefault(entry => entry.RoomId == id);
@@ -93,7 +95,7 @@ namespace Guestly.Controllers
       return RedirectToAction("Index");
     }
 
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public ActionResult Delete(int id)
     {
       var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == id);
@@ -113,6 +115,12 @@ namespace Guestly.Controllers
     public ActionResult DeleteGuest(int joinId)
     {
       var joinEntry = _db.GuestRoom.FirstOrDefault(entry => entry.GuestRoomId == joinId);
+      var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == joinEntry.GuestId);
+      var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == joinEntry.RoomId);
+      var thisRevenue = joinEntry.Nights * joinEntry.Room.Price;
+      thisGuest.LifetimeRevenue -= thisRevenue;
+      thisGuest.LifetimeNights -= joinEntry.Nights;
+      _db.Entry(thisGuest).State = EntityState.Modified;
       _db.GuestRoom.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");

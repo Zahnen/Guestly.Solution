@@ -3,30 +3,58 @@
 }
 
 @model Guestly.Models.Guest
-
+<br>
+<div class="container">
+  <div class="row">
+    <h1>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
+    <div class="col-sm-4">
+        <a class="tile">
+          <h3 class="title">Lifetime Nights</h3>
+          <h2>@Html.DisplayFor(model => model.LifetimeNights)</h2>
+        </a>
+    </div>
+    <div class="col-sm-4">
+        <a class="tile">
+          <h3 class="title">Lifetime Revenue</h3>
+          <h2>$@Html.DisplayFor(model => model.LifetimeRevenue).00</h2>
+        </a>
+    </div>
+  </div>
+</div>
+<hr>
 <div class="row">
   <div class="col-sm-6">
-    <h1>@Html.DisplayFor(model => model.FirstName)</h1>
-    <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.GuestId })</button>
-    <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = Model.GuestId })</button>
+    <h4>Phone Number: @Html.DisplayFor(model => model.PhoneNumber)</h4>
+    <h4>Email: @Html.DisplayFor(model => model.Email)</h4>
+    <button type="button" class="btn btn-default btn-warning text-secondary"><i class="fas fa-user-edit"></i> @Html.ActionLink("Edit", "Edit", new { id = Model.GuestId }, new{@class="text-secondary"})</button>
+    <button type="button" class="btn btn-default btn-warning text-secondary"><i class="fas fa-trash-alt"></i> @Html.ActionLink("Delete", "Delete", new { id = Model.GuestId}, new{@class="text-secondary"})</button>
   </div>
   <div class="col-sm-6">
-    <h1>Stay records:</h1>
-    <ul>
-      @if (@Model.Rooms.Count == 0)
-      {
-        <h3>No stay records for @Html.DisplayFor(model => model.FirstName)</h3>
-      }
-      @foreach(var join in Model.Rooms)
-      {
-        <li>@Html.ActionLink($"{@join.Room.RoomNumber}", "Details", "Rooms", new { id = join.RoomId } )</li>
-          @using (Html.BeginForm("RemoveRoom", "Guests"))
-          {
-            @Html.Hidden("joinId", @join.GuestRoomId)
-            <button class="btn btn-default" type="submit">Remove</button>
-          }
-      }
-    </ul>
-    <button type="button" class="btn btn-default">@Html.ActionLink("Add a stay record", "AddRoom", new { id = Model.GuestId })</button>
+    <h3>Stay records:</h3>
+      <table class="table table-hover table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Edit?</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach (var join in Model.Rooms)
+        {
+          <tr>
+            <td>@Html.ActionLink($"{@join.Room.RoomNumber}", "Details", "Rooms", new { id = join.RoomId } )</td>
+            <td>@join.Room.RoomType</td>
+            <td>
+            @using (Html.BeginForm("RemoveRoom", "Guests"))
+            {
+              @Html.Hidden("joinId", @join.GuestRoomId) <button class="btn btn-default btn-outline-danger" type="submit"><i class="fas fa-ban"></i> Remove</button>
+            }
+            </td>
+          </tr>
+        }
+        <tbody>
+      </table>
+    <button type="button" class="btn btn-default btn-outline-info"><i class="fas fa-bed"></i> @Html.ActionLink("Add a stay record", "AddRoom", new { id = Model.GuestId })</button>
   </div>
 </div>

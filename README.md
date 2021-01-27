@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <small>Last Updated: January 25th, 2021</small>
+  <small>Last Updated: January 26th, 2021</small>
 </p>
 
 # ℹ️ Description
@@ -40,8 +40,6 @@
 
 5. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info can be viewed.
 
-6. As a hotel employee, I need to be able to search for guests, rooms, and ____________?
-
 ## Stretch Goals?
 
 1. As a hotel employee, I would like to be able to see a details page for hotel rooms and properties (to include a list of guests that have stayed in them).
@@ -53,6 +51,22 @@
 4. JS front end - adding interactivity with nav bar, etc. 
 
 5. Handle Identity Errors 
+
+6. Sticky search/nav bar 
+
+7. Support links at bottom of page(s) - github link, email link
+
+8. Sort database with table links
+
+9. Add more properties to Guest class, and update seed data
+
+10. Choose what charts and data to display on splash page
+
+11. Add dates to guest visits
+
+12. DEPLOY!
+
+
 
 
 # 🧑‍💻 Contributers

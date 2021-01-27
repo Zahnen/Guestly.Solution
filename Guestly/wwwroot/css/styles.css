@@ -1,0 +1,49 @@
+#navBar {
+  background-color: #E8AA24;
+}
+
+/* .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+} */
+
+.container {
+  margin-top: 5%;
+}
+
+.canvasjs-chart-credit {
+  display:none;
+}
+
+#footer-links-left {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+} 
+
+#footer-links-right {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+.footer-image {
+  border-radius: 50%;
+}
+
+.tile {  
+  width: 100%;
+  margin-left: 30%;
+  display: inline-block;
+	box-sizing: border-box;
+	padding: 20px;
+  margin-bottom: 10px;
+  background: #d3d3d3;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

@@ -2,6 +2,16 @@
   Layout = "_Layout";
 } 
 
+
+<h1>Account</h1>
+@if(User.Identity.IsAuthenticated)
+{
+<h3>You are logged in as @User.Identity.Name</h3>
+}
+else
+{
+  <h3>Please login or register</h3>
+}
 @Html.ActionLink("Register", "Register")
 @Html.ActionLink("Log In", "Login")
 

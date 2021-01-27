@@ -1,41 +1,69 @@
 @{
-  Layout = "_Layout";
+  Layout = "Charts";
 }
+<div id="chartContainer">
+  <script type="text/javascript">
 
-@using Guestly.Models;
-@model Guestly.Models.MyBabyView;
+// @using Guestly.Models;
+// @model Guestly.Models.MyBabyView;
 
-@* 
-All Guests = Model.AllGuests
-All Rooms = Model.AllRooms 
-*@
+// @* 
+// All Guests = Model.AllGuests
+// All Rooms = Model.AllRooms 
+// *@
 
-<div class="row">
-  <div class="col-6">
-    <div class="card" style="width: 18rem;">
-      <div class="card-header">
-        <h1>Guests</h1>
-      </div>
-      <ul class="list-group list-group-flush">
-        @foreach (var guest in Model.AllGuests)
+// <div class="row">
+//   <div class="col-6">
+//     <div class="card" style="width: 18rem;">
+//       <div class="card-header">
+//         <h1>Guests</h1>
+//       </div>
+//       <ul class="list-group list-group-flush">
+//         @foreach (var guest in Model.AllGuests)
+//         {
+//           <li class="list-group-item"><h3>@Html.ActionLink($"{guest.FirstName}{guest.LastName}. LifetimeNights: {guest.LifetimeNights}, Lifetime revenue: {guest.LifetimeRevenue}", "Details", "Guests", new { id = guest.GuestId })</h3></li>
+//         }
+//       </ul>
+//     </div>
+//   </div>
+
+//   <div class="col-6">
+//     <div class="card" style="width: 18rem;">
+//       <div class="card-header">
+//         <h1>Rooms</h1>
+//       </div>
+//       <ul class="list-group list-group-flush">
+//       @foreach (var room in Model.AllRooms)
+//       {
+//         <li class="list-group-item"><h3>@Html.ActionLink($"#{room.RoomNumber}, type: {room.RoomType}, price: {room.Price}", "Details", "Rooms", new { id = room.RoomId } )</h3></li>
+//       }
+//       </ul>
+//     </div>
+//   </div>
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light2",
+        animationEnabled: true,
+        title: {
+          text: "Revenue Earned"
+        },
+        toolTip:{
+          animationEnabled: true,
+        },
+        subtitles: [
+          { text: "By Room" }
+        ],
+        data: [
         {
-          <li class="list-group-item"><h3>@Html.ActionLink($"{guest.FirstName}{guest.LastName}. LifetimeNights: {guest.LifetimeNights}, Lifetime revenue: {guest.LifetimeRevenue}", "Details", "Guests", new { id = guest.GuestId })</h3></li>
+          type: "pie",
+          startAngle: 160,
+          toolTipContent: "<b>{label}</b>: ${y}",
+          indexLabel: "{label} - ${y}",
+          dataPoints: @Html.Raw(ViewBag.DataPoints)
         }
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-6">
-    <div class="card" style="width: 18rem;">
-      <div class="card-header">
-        <h1>Rooms</h1>
-      </div>
-      <ul class="list-group list-group-flush">
-      @foreach (var room in Model.AllRooms)
-      {
-        <li class="list-group-item"><h3>@Html.ActionLink($"#{room.RoomNumber}, type: {room.RoomType}, price: {room.Price}", "Details", "Rooms", new { id = room.RoomId } )</h3></li>
-      }
-      </ul>
-    </div>
-  </div>
+        ]
+      });
+      chart.render();
+    };
+  </script>
 </div>

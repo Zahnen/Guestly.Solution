@@ -3,12 +3,12 @@
 }
 
 @model Guestly.Models.Room
-
+<br>
 <div class="row">
   <div class="col-sm-6">
     <h1>Room @Html.DisplayFor(model => model.RoomNumber)</h1>
-    <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.RoomId })</button>
-    <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = Model.RoomId })</button>
+    <button type="button" class="btn btn-default btn-warning"><i class="fas fa-user-edit"></i> @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId })</button>
+    <button type="button" class="btn btn-default btn-warning"><i class="fas fa-trash-alt"></i> @Html.ActionLink("Delete", "Delete", new { id = Model.RoomId })</button>
   </div>
   <div class="col-sm-6">
     <h1>Stay records:</h1>
@@ -23,10 +23,10 @@
           @using (Html.BeginForm("RemoveGuest", "Rooms"))
           {
             @Html.Hidden("joinId", @join.GuestRoomId)
-            <button class="btn btn-default" type="submit">Remove</button>
+            <button class="btn btn-default btn-outline-danger" type="submit"><i class="fas fa-ban"></i> Remove</button>
           }
       }
     </ul>
-    <button type="button" class="btn btn-default">@Html.ActionLink("Add a guest stay", "AddGuest", new { id = Model.RoomId })</button>
+    <button type="button" class="btn btn-default btn-outline-info"><i class="fas fa-bed"></i> @Html.ActionLink("Add a guest stay", "AddGuest", new { id = Model.RoomId })</button>
   </div>
 </div>

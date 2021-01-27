@@ -12,7 +12,7 @@
 
 @if (Model.Any())
 {
-  @Html.ActionLink("Create Role", "CreateRole", "Administration", null, new { @class="btn btn-light" })
+  @Html.ActionLink("Create Role", "CreateRole", "Administration", null, new { @class="btn btn-outline-warning text-secondary" })
   <hr />
   foreach(var role in Model)
   {
@@ -24,8 +24,14 @@
         <h3 class="card-title">@role.Name</h3>
       </div>
       <div class="card-footer">
-        @Html.ActionLink("Edit", "EditRole", "Administration", new { id = role.Id }, new { @class="btn btn-light" })
-      </div>
+        @using (Html.BeginForm("DeleteRole", "Administration"))
+        {
+          @Html.ActionLink("Edit", "EditRole", "Administration", new { id = role.Id }, new { @class="btn btn-outline-warning text-secondary" })
+
+          @Html.Hidden("id", @role.Id)
+          <input type="submit" value="Delete" class="btn btn-outline-danger" />
+        }
+        </div>
     </div>
     <hr />
   }

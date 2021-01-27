@@ -3,14 +3,16 @@ using System;
 using Guestly.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Guestly.Migrations
 {
     [DbContext(typeof(GuestlyContext))]
-    partial class GuestlyContextModelSnapshot : ModelSnapshot
+    [Migration("20210127224622_seedDates")]
+    partial class seedDates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -700,15 +702,13 @@ namespace Guestly.Migrations
                     b.Property<int>("GuestRoomId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ArriveDate");
-
-                    b.Property<string>("CheckoutDate");
-
                     b.Property<int>("GuestId");
 
                     b.Property<int>("Nights");
 
                     b.Property<int>("RoomId");
+
+                    b.Property<string>("StayDate");
 
                     b.HasKey("GuestRoomId");
 
@@ -722,542 +722,482 @@ namespace Guestly.Migrations
                         new
                         {
                             GuestRoomId = 1,
-                            ArriveDate = "5/22/20",
-                            CheckoutDate = "5/24/20",
                             GuestId = 1,
                             Nights = 2,
-                            RoomId = 1
+                            RoomId = 1,
+                            StayDate = "5/22/20"
                         },
                         new
                         {
                             GuestRoomId = 2,
-                            ArriveDate = "6/5/20",
-                            CheckoutDate = "6/6/20",
                             GuestId = 2,
                             Nights = 1,
-                            RoomId = 2
+                            RoomId = 2,
+                            StayDate = "6/5/20"
                         },
                         new
                         {
                             GuestRoomId = 3,
-                            ArriveDate = "1/31/20",
-                            CheckoutDate = "2/4/20",
                             GuestId = 3,
                             Nights = 4,
-                            RoomId = 3
+                            RoomId = 3,
+                            StayDate = "1/31/20"
                         },
                         new
                         {
                             GuestRoomId = 4,
-                            ArriveDate = "8/11/20",
-                            CheckoutDate = "8/16/20",
                             GuestId = 4,
                             Nights = 5,
-                            RoomId = 4
+                            RoomId = 4,
+                            StayDate = "8/11/20"
                         },
                         new
                         {
                             GuestRoomId = 5,
-                            ArriveDate = "2/28/20",
-                            CheckoutDate = "3/2/20",
                             GuestId = 5,
                             Nights = 3,
-                            RoomId = 5
+                            RoomId = 5,
+                            StayDate = "2/28/20"
                         },
                         new
                         {
                             GuestRoomId = 6,
-                            ArriveDate = "6/5/20",
-                            CheckoutDate = "6/7/20",
                             GuestId = 6,
                             Nights = 2,
-                            RoomId = 6
+                            RoomId = 6,
+                            StayDate = "6/5/20"
                         },
                         new
                         {
                             GuestRoomId = 7,
-                            ArriveDate = "7/13/20",
-                            CheckoutDate = "7/14/20",
                             GuestId = 7,
                             Nights = 1,
-                            RoomId = 7
+                            RoomId = 7,
+                            StayDate = "7/13/20"
                         },
                         new
                         {
                             GuestRoomId = 8,
-                            ArriveDate = "8/15/20",
-                            CheckoutDate = "8/19/20",
                             GuestId = 8,
                             Nights = 4,
-                            RoomId = 8
+                            RoomId = 8,
+                            StayDate = "8/15/20"
                         },
                         new
                         {
                             GuestRoomId = 9,
-                            ArriveDate = "9/30/20",
-                            CheckoutDate = "10/5/20",
                             GuestId = 9,
                             Nights = 5,
-                            RoomId = 9
+                            RoomId = 9,
+                            StayDate = "9/30/20"
                         },
                         new
                         {
                             GuestRoomId = 10,
-                            ArriveDate = "11/26/19",
-                            CheckoutDate = "11/29/19",
                             GuestId = 10,
                             Nights = 3,
-                            RoomId = 10
+                            RoomId = 10,
+                            StayDate = "11/26/20"
                         },
                         new
                         {
                             GuestRoomId = 11,
-                            ArriveDate = "12/25/19",
-                            CheckoutDate = "12/27/19",
                             GuestId = 11,
                             Nights = 2,
-                            RoomId = 11
+                            RoomId = 11,
+                            StayDate = "12/25/20"
                         },
                         new
                         {
                             GuestRoomId = 12,
-                            ArriveDate = "12/31/20",
-                            CheckoutDate = "1/1/21",
                             GuestId = 12,
                             Nights = 1,
-                            RoomId = 12
+                            RoomId = 12,
+                            StayDate = "12/31/20"
                         },
                         new
                         {
                             GuestRoomId = 13,
-                            ArriveDate = "1/1/20",
-                            CheckoutDate = "1/5/20",
                             GuestId = 13,
                             Nights = 4,
-                            RoomId = 13
+                            RoomId = 13,
+                            StayDate = "1/1/20"
                         },
                         new
                         {
                             GuestRoomId = 14,
-                            ArriveDate = "8/10/20",
-                            CheckoutDate = "8/15/20",
                             GuestId = 14,
                             Nights = 5,
-                            RoomId = 14
+                            RoomId = 14,
+                            StayDate = "8/10/20"
                         },
                         new
                         {
                             GuestRoomId = 15,
-                            ArriveDate = "10/27/19",
-                            CheckoutDate = "10/30/19",
                             GuestId = 15,
                             Nights = 3,
-                            RoomId = 15
+                            RoomId = 15,
+                            StayDate = "10/27/20"
                         },
                         new
                         {
                             GuestRoomId = 16,
-                            ArriveDate = "10/7/20",
-                            CheckoutDate = "10/9/20",
                             GuestId = 16,
                             Nights = 2,
-                            RoomId = 16
+                            RoomId = 16,
+                            StayDate = "10/7/20"
                         },
                         new
                         {
                             GuestRoomId = 17,
-                            ArriveDate = "11/28/20",
-                            CheckoutDate = "11/29/20",
                             GuestId = 17,
                             Nights = 1,
-                            RoomId = 17
+                            RoomId = 17,
+                            StayDate = "11/28/20"
                         },
                         new
                         {
                             GuestRoomId = 18,
-                            ArriveDate = "4/4/20",
-                            CheckoutDate = "4/8/20",
                             GuestId = 18,
                             Nights = 4,
-                            RoomId = 18
+                            RoomId = 18,
+                            StayDate = "4/4/20"
                         },
                         new
                         {
                             GuestRoomId = 19,
-                            ArriveDate = "11/14/19",
-                            CheckoutDate = "11/15/19",
                             GuestId = 19,
                             Nights = 1,
-                            RoomId = 19
+                            RoomId = 19,
+                            StayDate = "11/14/20"
                         },
                         new
                         {
                             GuestRoomId = 20,
-                            ArriveDate = "7/4/20",
-                            CheckoutDate = "7/7/20",
                             GuestId = 20,
                             Nights = 3,
-                            RoomId = 20
+                            RoomId = 20,
+                            StayDate = "7/4/20"
                         },
                         new
                         {
                             GuestRoomId = 21,
-                            ArriveDate = "3/15/20",
-                            CheckoutDate = "3/17/20",
                             GuestId = 21,
                             Nights = 2,
-                            RoomId = 19
+                            RoomId = 19,
+                            StayDate = "3/15/20"
                         },
                         new
                         {
                             GuestRoomId = 22,
-                            ArriveDate = "5/19/20",
-                            CheckoutDate = "5/20/20",
                             GuestId = 22,
                             Nights = 1,
-                            RoomId = 18
+                            RoomId = 18,
+                            StayDate = "5/19/20"
                         },
                         new
                         {
                             GuestRoomId = 23,
-                            ArriveDate = "5/30/20",
-                            CheckoutDate = "6/4/20",
                             GuestId = 23,
                             Nights = 4,
-                            RoomId = 17
+                            RoomId = 17,
+                            StayDate = "5/30/20"
                         },
                         new
                         {
                             GuestRoomId = 24,
-                            ArriveDate = "2/29/20",
-                            CheckoutDate = "3/5/20",
                             GuestId = 24,
                             Nights = 5,
-                            RoomId = 16
+                            RoomId = 16,
+                            StayDate = "2/29/20"
                         },
                         new
                         {
                             GuestRoomId = 25,
-                            ArriveDate = "6/18/20",
-                            CheckoutDate = "6/21/20",
                             GuestId = 25,
                             Nights = 3,
-                            RoomId = 15
+                            RoomId = 15,
+                            StayDate = "6/18/20"
                         },
                         new
                         {
                             GuestRoomId = 26,
-                            ArriveDate = "10/29/20",
-                            CheckoutDate = "10/31/20",
                             GuestId = 26,
                             Nights = 2,
-                            RoomId = 14
+                            RoomId = 14,
+                            StayDate = "10/29/20"
                         },
                         new
                         {
                             GuestRoomId = 27,
-                            ArriveDate = "11/2/20",
-                            CheckoutDate = "11/3/20",
                             GuestId = 27,
                             Nights = 1,
-                            RoomId = 13
+                            RoomId = 13,
+                            StayDate = "11/2/20"
                         },
                         new
                         {
                             GuestRoomId = 28,
-                            ArriveDate = "12/5/20",
-                            CheckoutDate = "12/9/20",
                             GuestId = 28,
                             Nights = 4,
-                            RoomId = 12
+                            RoomId = 12,
+                            StayDate = "12/5/20"
                         },
                         new
                         {
                             GuestRoomId = 29,
-                            ArriveDate = "4/1/20",
-                            CheckoutDate = "4/6/20",
                             GuestId = 29,
                             Nights = 5,
-                            RoomId = 11
+                            RoomId = 11,
+                            StayDate = "4/1/20"
                         },
                         new
                         {
                             GuestRoomId = 30,
-                            ArriveDate = "5/2/20",
-                            CheckoutDate = "5/5/20",
                             GuestId = 30,
                             Nights = 3,
-                            RoomId = 10
+                            RoomId = 10,
+                            StayDate = "5/2/20"
                         },
                         new
                         {
                             GuestRoomId = 31,
-                            ArriveDate = "6/3/20",
-                            CheckoutDate = "6/5/20",
                             GuestId = 31,
                             Nights = 2,
-                            RoomId = 9
+                            RoomId = 9,
+                            StayDate = "6/3/20"
                         },
                         new
                         {
                             GuestRoomId = 32,
-                            ArriveDate = "7/4/20",
-                            CheckoutDate = "7/5/20",
                             GuestId = 32,
                             Nights = 1,
-                            RoomId = 8
+                            RoomId = 8,
+                            StayDate = "7/4/20"
                         },
                         new
                         {
                             GuestRoomId = 33,
-                            ArriveDate = "8/5/20",
-                            CheckoutDate = "8/9/20",
                             GuestId = 33,
                             Nights = 4,
-                            RoomId = 7
+                            RoomId = 7,
+                            StayDate = "8/5/20"
                         },
                         new
                         {
                             GuestRoomId = 34,
-                            ArriveDate = "9/6/20",
-                            CheckoutDate = "9/11/20",
                             GuestId = 34,
                             Nights = 5,
-                            RoomId = 6
+                            RoomId = 6,
+                            StayDate = "09/6/20"
                         },
                         new
                         {
                             GuestRoomId = 35,
-                            ArriveDate = "10/7/20",
-                            CheckoutDate = "10/10/20",
                             GuestId = 35,
                             Nights = 3,
-                            RoomId = 5
+                            RoomId = 5,
+                            StayDate = "10/7/20"
                         },
                         new
                         {
                             GuestRoomId = 36,
-                            ArriveDate = "11/8/20",
-                            CheckoutDate = "11/10/20",
                             GuestId = 36,
                             Nights = 2,
-                            RoomId = 4
+                            RoomId = 4,
+                            StayDate = "11/8/20"
                         },
                         new
                         {
                             GuestRoomId = 37,
-                            ArriveDate = "12/10/19",
-                            CheckoutDate = "12/11/19",
                             GuestId = 37,
                             Nights = 1,
-                            RoomId = 3
+                            RoomId = 3,
+                            StayDate = "12/10/20"
                         },
                         new
                         {
                             GuestRoomId = 38,
-                            ArriveDate = "11/21/20",
-                            CheckoutDate = "11/25/20",
                             GuestId = 38,
                             Nights = 4,
-                            RoomId = 2
+                            RoomId = 2,
+                            StayDate = "11/21/20"
                         },
                         new
                         {
                             GuestRoomId = 39,
-                            ArriveDate = "10/11/20",
-                            CheckoutDate = "10/16/20",
                             GuestId = 39,
                             Nights = 5,
-                            RoomId = 1
+                            RoomId = 1,
+                            StayDate = "10/11/20"
                         },
                         new
                         {
                             GuestRoomId = 40,
-                            ArriveDate = "9/16/20",
-                            CheckoutDate = "9/19/20",
                             GuestId = 40,
                             Nights = 3,
-                            RoomId = 2
+                            RoomId = 2,
+                            StayDate = "9/16/20"
                         },
                         new
                         {
                             GuestRoomId = 41,
-                            ArriveDate = "8/23/20",
-                            CheckoutDate = "8/24/20",
                             GuestId = 41,
                             Nights = 1,
-                            RoomId = 3
+                            RoomId = 3,
+                            StayDate = "8/23/20"
                         },
                         new
                         {
                             GuestRoomId = 42,
-                            ArriveDate = "7/8/20",
-                            CheckoutDate = "7/9/20",
                             GuestId = 42,
                             Nights = 1,
-                            RoomId = 4
+                            RoomId = 4,
+                            StayDate = "7/8/20"
                         },
                         new
                         {
                             GuestRoomId = 43,
-                            ArriveDate = "6/10/20",
-                            CheckoutDate = "6/14/20",
                             GuestId = 43,
                             Nights = 4,
-                            RoomId = 5
+                            RoomId = 5,
+                            StayDate = "6/10/20"
                         },
                         new
                         {
                             GuestRoomId = 44,
-                            ArriveDate = "5/8/20",
-                            CheckoutDate = "5/13/20",
                             GuestId = 44,
                             Nights = 5,
-                            RoomId = 6
+                            RoomId = 6,
+                            StayDate = "5/8/20"
                         },
                         new
                         {
                             GuestRoomId = 45,
-                            ArriveDate = "4/21/20",
-                            CheckoutDate = "4/22/20",
                             GuestId = 45,
                             Nights = 1,
-                            RoomId = 7
+                            RoomId = 7,
+                            StayDate = "4/21/20"
                         },
                         new
                         {
                             GuestRoomId = 46,
-                            ArriveDate = "3/7/20",
-                            CheckoutDate = "3/9/20",
                             GuestId = 46,
                             Nights = 2,
-                            RoomId = 8
+                            RoomId = 8,
+                            StayDate = "3/7/20"
                         },
                         new
                         {
                             GuestRoomId = 47,
-                            ArriveDate = "2/3/20",
-                            CheckoutDate = "2/4/20",
                             GuestId = 47,
                             Nights = 1,
-                            RoomId = 9
+                            RoomId = 9,
+                            StayDate = "2/3/20"
                         },
                         new
                         {
                             GuestRoomId = 48,
-                            ArriveDate = "1/2/20",
-                            CheckoutDate = "1/6/20",
                             GuestId = 48,
                             Nights = 4,
-                            RoomId = 10
+                            RoomId = 10,
+                            StayDate = "1/2/20"
                         },
                         new
                         {
                             GuestRoomId = 49,
-                            ArriveDate = "12/1/19",
-                            CheckoutDate = "12/6/19",
                             GuestId = 49,
                             Nights = 5,
-                            RoomId = 11
+                            RoomId = 11,
+                            StayDate = "12/1/20"
                         },
                         new
                         {
                             GuestRoomId = 50,
-                            ArriveDate = "11/13/19",
-                            CheckoutDate = "11/16/19",
                             GuestId = 50,
                             Nights = 3,
-                            RoomId = 12
+                            RoomId = 12,
+                            StayDate = "11/13/20"
                         },
                         new
                         {
                             GuestRoomId = 51,
-                            ArriveDate = "10/28/20",
-                            CheckoutDate = "10/30/20",
                             GuestId = 51,
                             Nights = 2,
-                            RoomId = 13
+                            RoomId = 13,
+                            StayDate = "10/28/20"
                         },
                         new
                         {
                             GuestRoomId = 52,
-                            ArriveDate = "9/22/20",
-                            CheckoutDate = "9/23/20",
                             GuestId = 52,
                             Nights = 1,
-                            RoomId = 14
+                            RoomId = 14,
+                            StayDate = "9/22/20"
                         },
                         new
                         {
                             GuestRoomId = 53,
-                            ArriveDate = "8/24/20",
-                            CheckoutDate = "8/28/20",
                             GuestId = 53,
                             Nights = 4,
-                            RoomId = 15
+                            RoomId = 15,
+                            StayDate = "8/30/20"
                         },
                         new
                         {
                             GuestRoomId = 54,
-                            ArriveDate = "7/21/20",
-                            CheckoutDate = "7/26/20",
                             GuestId = 54,
                             Nights = 5,
-                            RoomId = 16
+                            RoomId = 16,
+                            StayDate = "7/21/20"
                         },
                         new
                         {
                             GuestRoomId = 55,
-                            ArriveDate = "6/17/20",
-                            CheckoutDate = "6/20/20",
                             GuestId = 55,
                             Nights = 3,
-                            RoomId = 17
+                            RoomId = 17,
+                            StayDate = "6/17/20"
                         },
                         new
                         {
                             GuestRoomId = 56,
-                            ArriveDate = "5/3/20",
-                            CheckoutDate = "5/5/20",
                             GuestId = 56,
                             Nights = 2,
-                            RoomId = 18
+                            RoomId = 18,
+                            StayDate = "5/3/20"
                         },
                         new
                         {
                             GuestRoomId = 57,
-                            ArriveDate = "4/4/20",
-                            CheckoutDate = "4/5/20",
                             GuestId = 57,
                             Nights = 1,
-                            RoomId = 19
+                            RoomId = 19,
+                            StayDate = "4/4/20"
                         },
                         new
                         {
                             GuestRoomId = 58,
-                            ArriveDate = "3/22/20",
-                            CheckoutDate = "3/26/20",
                             GuestId = 58,
                             Nights = 4,
-                            RoomId = 20
+                            RoomId = 20,
+                            StayDate = "3/22/20"
                         },
                         new
                         {
                             GuestRoomId = 59,
-                            ArriveDate = "2/10/20",
-                            CheckoutDate = "2/15/20",
                             GuestId = 59,
                             Nights = 5,
-                            RoomId = 19
+                            RoomId = 19,
+                            StayDate = "2/10/20"
                         },
                         new
                         {
                             GuestRoomId = 60,
-                            ArriveDate = "1/1/20",
-                            CheckoutDate = "1/4/20",
                             GuestId = 60,
                             Nights = 3,
-                            RoomId = 18
+                            RoomId = 18,
+                            StayDate = "1/1/20"
                         });
                 });
 

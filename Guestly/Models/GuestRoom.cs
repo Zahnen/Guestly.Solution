@@ -9,6 +9,8 @@ namespace Guestly.Models
     public int GuestId { get; set; }
     public int RoomId { get; set; }
     public int Nights { get; set; }
+    public string ArriveDate { get; set; }
+    public string CheckoutDate { get; set; }
     public Guest Guest { get; set; }
     public Room Room { get; set; }
   }

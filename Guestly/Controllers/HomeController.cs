@@ -19,6 +19,9 @@ namespace Guestly.Controllers
 
       public ActionResult Index()
       {
+        var viewModel = new MyBabyView();
+        viewModel.AllGuests = _db.Guests.ToList();
+        viewModel.AllRooms = _db.Rooms.ToList();
       List<DataPoint> dataPoints = new List<DataPoint>{
 				new DataPoint(40, RoomRevCalc("Suite"), label:"Suite"),
 				new DataPoint(10, RoomRevCalc("King"), label:"King"),
@@ -28,7 +31,7 @@ namespace Guestly.Controllers
       };
 
 			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
-        return View();
+        return View(viewModel);
       }
       
       public float RoomRevCalc(string roomType)

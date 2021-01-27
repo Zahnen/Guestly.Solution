@@ -31,6 +31,7 @@ namespace Guestly.Controllers
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
       if(ModelState.IsValid)

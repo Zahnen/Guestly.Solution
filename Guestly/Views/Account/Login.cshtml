@@ -22,6 +22,7 @@
         @Html.LabelFor(m => m.Password)
         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
       </div>
+      @Html.ValidationSummary(false,"",new { @class = "text-danger"})
     </div>
     <div class="card-footer">
       <input type="submit" value="Log in" class="btn btn-outline-secondary" />

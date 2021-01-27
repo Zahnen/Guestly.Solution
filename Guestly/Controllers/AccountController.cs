@@ -64,20 +64,16 @@ namespace Guestly.Controllers
     [HttpPost]
     public async Task<ActionResult> Login(LoginViewModel model)
     {
-      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
-      if(result.Succeeded)
+      if (ModelState.IsValid)
       {
-        return RedirectToAction("Index");
+        Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+        if(result.Succeeded)
+        {
+          return RedirectToAction("Index");
+        }
+        ModelState.AddModelError(string.Empty, "Login failed: Invalid username of password");
       }
-      else
-      {
-        // foreach(var error in result.Errors)
-        // {
-        //   ModelState.AddModelError()
-        // }
-        // IdentityErrorDescriber
-        return View();
-      }
+      return View();
     }
 
     [HttpPost]

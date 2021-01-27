@@ -24,7 +24,7 @@
 </p>
 
 # ℹ️ Description
-
+Guestly is a customer relationship management tool designed for the hospitality industry. This app allows hotel staff to manage current guest stays, track revenue performance, and sort through historical guest and reservation metrics. Guestly makes it easy to create a personalized database for your hotel's portfolio? Easy to create Staff roles for employees to use. As an admin, see important  see your historical data in super sick and at-a-glance 
 
 
 ## MVP User Stories?
@@ -68,16 +68,6 @@
 
 13. exporting database to excel
 
-
--add Zahnens tight details table to Rooms
--keep working on splash page and what to display
--what charts and what data and update seed data last once we know
-  -yearly revenue by room
-  -yearly revenue by customer
-  -how many guests are checked in currently
-  -email guests by lifetime revenue
-  -email guests by most nights stayed
--guest index's email, gh, and back to top button floating over content?
 
 
 # 🧑‍💻 Contributers

@@ -11,6 +11,7 @@ using System;
 
 namespace Guestly.Controllers
 {
+  [Authorize]
   public class GuestsController : Controller
   {
     private readonly GuestlyContext _db;
@@ -32,12 +33,12 @@ namespace Guestly.Controllers
 
       if(!String.IsNullOrEmpty(firstName))
       {
-        guestList = guestList.Where(entry=>entry.FirstName == firstName);
+        guestList = guestList.Where(entry=>entry.FirstName == firstName || entry.FirstName.Contains(firstName));
       }
 
       if(!String.IsNullOrEmpty(lastName))
       {
-        guestList = guestList.Where(entry=>entry.LastName == lastName);
+        guestList = guestList.Where(entry=>entry.LastName == lastName || entry.FirstName.Contains(lastName));
       }
       
       if(!String.IsNullOrEmpty(email))
@@ -65,6 +66,7 @@ namespace Guestly.Controllers
       return View(guestList.ToList());
     }
 
+    [Authorize(Roles = "Admin")]
     public ActionResult Create()
     {
       ViewBag.RoomId = new SelectList(_db.Rooms, "RoomId", "RoomNumber");
@@ -73,18 +75,25 @@ namespace Guestly.Controllers
 
     [HttpPost]
     public ActionResult Create(CreateGuestAndStayViewModel guest)
-    {
-      var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == guest.RoomId);
-      var revenue = guest.Nights * thisRoom.Price;
-      var nights = guest.Nights;
-      var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber, LifetimeRevenue = revenue, LifetimeNights = nights};
-      _db.Guests.Add(thisGuest);
+    { 
       if(guest.RoomId != 0 && guest.Nights != 0)
       {
+        var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == guest.RoomId);
+        var revenue = guest.Nights * thisRoom.Price;
+        var nights = guest.Nights;
+        var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber, City = guest.City, State = guest.State, Country = guest.Country,  LifetimeRevenue = revenue, LifetimeNights = nights};
+        _db.Guests.Add(thisGuest);
         _db.GuestRoom.Add(new GuestRoom(){GuestId = thisGuest.GuestId, RoomId = guest.RoomId, Nights = guest.Nights});
+        _db.SaveChanges();
+        return RedirectToAction("Index");
       }
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      else
+      {
+        var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber, City = guest.City, State = guest.State, Country = guest.Country};
+        _db.Guests.Add(thisGuest);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
     }
 
     public ActionResult Details(int id)
@@ -96,6 +105,7 @@ namespace Guestly.Controllers
       return View(thisGuest);
     }
     
+    [Authorize(Roles = "Admin")]
     public ActionResult Edit(int id)
     {
       var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == id);
@@ -110,6 +120,7 @@ namespace Guestly.Controllers
       return RedirectToAction("Details", new { id = guest.GuestId });
     }
 
+    [Authorize(Roles = "Admin")]
     public ActionResult AddRoom(int id)
     {
       var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == id);
@@ -127,12 +138,13 @@ namespace Guestly.Controllers
       _db.Entry(guest).State = EntityState.Modified;
       if (RoomId != 0)
       {
-        _db.GuestRoom.Add(new GuestRoom() {RoomId = RoomId, GuestId = guest.GuestId});
+        _db.GuestRoom.Add(new GuestRoom() {RoomId = RoomId, GuestId = guest.GuestId, Nights = newNights});
       } 
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = guest.GuestId});
     }
 
+    [Authorize(Roles = "Admin")]
     public ActionResult Delete(int id)
     {
       var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == id);
@@ -152,6 +164,12 @@ namespace Guestly.Controllers
     public ActionResult RemoveRoom(int joinId)
     {
       var joinEntry = _db.GuestRoom.FirstOrDefault(entry => entry.GuestRoomId == joinId);
+      var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == joinEntry.GuestId);
+      var thisRoom = _db.Rooms.FirstOrDefault(room => room.RoomId == joinEntry.RoomId);
+      var thisRevenue = joinEntry.Nights * joinEntry.Room.Price;
+      thisGuest.LifetimeRevenue -= thisRevenue;
+      thisGuest.LifetimeNights -= joinEntry.Nights;
+      _db.Entry(thisGuest).State = EntityState.Modified;
       _db.GuestRoom.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = joinEntry.GuestId});

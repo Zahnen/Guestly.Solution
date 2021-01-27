@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -8,6 +10,7 @@ using Guestly.Models;
 
 namespace Guestly.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
       private readonly GuestlyContext _db;

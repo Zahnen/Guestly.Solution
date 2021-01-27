@@ -4,7 +4,7 @@
 
 @using Guestly.Models;
 @model List<Guestly.Models.Guest>;
-
+<br>
 <h1>Guest Database:</h1>
 @using (Html.BeginForm())
 {
@@ -12,7 +12,8 @@
 <div class="container searchInputs">
   @Html.TextBox("firstName", null ,new { placeholder = "First Name"})
   @Html.TextBox("lastName", null ,new { placeholder = "Last Name"})
-  <input type="button" id="refine" value="Refine Search" class="btn btn-danger"/>
+  <input type="submit" value="Search" class="btn btn-info"/>
+  <h6 id="refine" style="cursor:pointer; color:blue">Refine Search</h6>
   <div id="params" style="display:none">
     @Html.TextBox("email", null ,new { placeholder = "Email"})
     @Html.TextBox("phone", null ,new { placeholder = "Phone Number"})
@@ -20,14 +21,12 @@
     @Html.TextBox("nights", null ,new { placeholder = "Nights Stayed"})
   </div>
 </div>
-<input type="submit" value="Search" class="btn btn-info"/>
 }
-
+<br>
 @if (@Model.Count == 0)
 {
   <h3>There are no guests.</h3>
 }
-
 <table class="table table-hover table-striped">
   <thead class="thead-light">
     <tr>
@@ -51,15 +50,6 @@
   }
   <tbody>
 </table>
-
-@* @using (Html.BeginForm())
-{
-<p>
-    Name  : @Html.TextBox("SearchName")<br />
-    <input type="submit" value="Search" />
-</p>
-} *@
-
 
 <script type="text/javascript">   
     document.querySelector("#refine").addEventListener('click', function(){

@@ -49,6 +49,9 @@
         <thead class="thead-light">
           <tr>
             <th>Guest Name</th>
+            <th>Arrival Date</th>
+            <th>Checkout Date</th>
+            <th>Nights</th>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
             <th>Remove Record?</th>
@@ -60,12 +63,16 @@
         {
           <tr>
             <td>@Html.ActionLink($"{@join.Guest.FirstName} {@join.Guest.LastName}", "Details", "Guests", new { id = join.GuestId } )</td>
+            <td>@join.ArriveDate</td>
+            <td>@join.CheckoutDate</td>
+            <td>@join.Nights</td>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
               <td>
               @using (Html.BeginForm("RemoveRoom", "Guests"))
               {
-                @Html.Hidden("joinId", @join.GuestRoomId) <button class="btn btn-default btn-outline-danger" type="submit"><i class="fas fa-ban"></i> Remove</button>
+                @Html.Hidden("joinId", @join.GuestRoomId)
+                <button class="btn btn-default btn-outline-danger" type="submit"><i class="fas fa-ban"></i> Remove</button>
               }
               </td>
             }

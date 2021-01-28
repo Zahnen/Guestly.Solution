@@ -30,18 +30,3 @@
     </div>
   </div>
 </div>
-
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.RoomId)
-  @Html.HiddenFor(model => model.RoomType)
-  @Html.HiddenFor(model => model.Price)
-
-  @Html.Label("Select Guest")
-  @Html.DropDownList("GuestId")
-
-  @Html.Label("How many nights is this guest staying?")
-  @Html.TextBox("newNights")
-
-  <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
-}

@@ -37,32 +37,3 @@
     </div>
   </div>
 </div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>What room did this guest stay in?</h3>
-  </div>
-  @using (Html.BeginForm())
-  {
-    <div class="card-body">
-      @Html.HiddenFor(model => model.GuestId)
-      @Html.HiddenFor(model => model.FirstName)
-      @Html.HiddenFor(model => model.LastName)
-      @Html.HiddenFor(model => model.PhoneNumber)
-      @Html.HiddenFor(model => model.Email)
-      @Html.HiddenFor(model => model.LifetimeNights)
-      @Html.HiddenFor(model => model.LifetimeRevenue)
-      <div class = "form-group">
-        @Html.Label("Select the room number:")
-        @Html.DropDownList("RoomId", (SelectList)ViewBag.RoomId, "Select Room Number", new { @class = "form-control" })
-      </div>
-      <div class ="form-group">
-        @Html.Label("How many nights is this guest staying?")
-        @Html.TextBox("newNights","", new {@class="form-control",@required="required"})
-      </div>
-    </div>
-    <div class = "card-footer">
-      <input type="submit" value="Save" class= "btn btn-outline-warning text-secondary"/>
-      @Html.ActionLink("Cancel", "Details", "Guests", new {id = Model.GuestId}, new {@class="btn btn-outline-warning text-secondary"})
-    </div>
-  }

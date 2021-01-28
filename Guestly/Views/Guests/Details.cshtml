@@ -6,7 +6,9 @@
 <br>
 <div class="container">
   <div class="row">
-    <h1 id="guestName">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
+    <div class="col-sm-4">
+      <h1 id="guestName">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
+    </div>
     <div class="col-sm-4">
         <a class="tile">
           <h3 class="title">Lifetime Nights</h3>
@@ -49,7 +51,6 @@
             <th>Room Type</th>
             <th>Arrival Date</th>
             <th>Checkout Date</th>
-            <th>Edit?</th>
             <th>Nights</th>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
@@ -65,24 +66,25 @@
             <td>@join.Room.RoomType</td>
             <td>@join.ArriveDate</td>
             <td>@join.CheckoutDate</td>
-            <td>
-            @using (Html.BeginForm("RemoveRoom", "Guests"))
             <td>@join.Nights</td>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            @using (Html.BeginForm("RemoveRoom", "Guests"))
             {
-              <td>
-              @using (Html.BeginForm("RemoveRoom", "Guests"))
+              @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
               {
-                @Html.HiddenFor(model => model.GuestId)
-                @Html.HiddenFor(model => model.FirstName)
-                @Html.HiddenFor(model => model.LastName)
-                @Html.HiddenFor(model => model.PhoneNumber)
-                @Html.HiddenFor(model => model.Email)
-                @Html.HiddenFor(model => model.LifetimeNights)
-                @Html.HiddenFor(model => model.LifetimeRevenue)
-                @Html.Hidden("joinId", @join.GuestRoomId) <button class="btn btn-default btn-outline-danger" type="submit"><i class="fas fa-ban"></i> Remove</button>
+                <td>
+                @using (Html.BeginForm("RemoveRoom", "Guests"))
+                {
+                  @Html.HiddenFor(model => model.GuestId)
+                  @Html.HiddenFor(model => model.FirstName)
+                  @Html.HiddenFor(model => model.LastName)
+                  @Html.HiddenFor(model => model.PhoneNumber)
+                  @Html.HiddenFor(model => model.Email)
+                  @Html.HiddenFor(model => model.LifetimeNights)
+                  @Html.HiddenFor(model => model.LifetimeRevenue)
+                  @Html.Hidden("joinId", @join.GuestRoomId) <button class="btn btn-default btn-outline-danger" type="submit"><i class="fas fa-ban"></i> Remove</button>
+                }
+                </td>
               }
-              </td>
             }
           </tr>
         }

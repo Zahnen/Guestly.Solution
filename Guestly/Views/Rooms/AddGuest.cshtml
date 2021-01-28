@@ -16,16 +16,18 @@
               @Html.HiddenFor(model => model.RoomId)
               @Html.HiddenFor(model => model.RoomType)
               @Html.HiddenFor(model => model.Price)
-
-              @Html.Label("Select Guest")
-              @Html.DropDownList("GuestId", (SelectList)ViewBag.GuestId, "Select Guest", new { @class = "form-control" })
-
-              @Html.Label("How many nights did the guest stay?")
-              @Html.TextBox("newNights", "", new{@class="form-control", placeholder = "Nights", required = "required"})
-
-              @Html.Label("When is the check-in date?")<br>
-              <input type="date" value="2021-01-28" name="dateOfArrival">
-
+              <div class ="form-group">
+                @Html.Label("Select Guest")
+                @Html.DropDownList("GuestId", (SelectList)ViewBag.GuestId, "Select Guest", new { @class = "form-control" })
+              </div>
+              <div class ="form-group">
+                @Html.Label("How many nights did the guest stay?")
+                @Html.TextBox("newNights", "", new{@class="form-control", placeholder = "Nights", required = "required"})
+              </div>
+              <div class ="form-group">
+                @Html.Label("When is the check-in date?")<br>
+                <input type="date" value="2021-01-28" name="dateOfArrival" class="form-control">
+              </div>
               <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
             }
         </div>

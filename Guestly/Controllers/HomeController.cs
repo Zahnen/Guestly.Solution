@@ -26,10 +26,20 @@ namespace Guestly.Controllers
         viewModel.AllGuests = _db.Guests.ToList();
         viewModel.AllRooms = _db.Rooms.ToList();
       List<DataPoint> piePoints = new List<DataPoint>{
-				new DataPoint(40, RoomRevCalc("Suite"), label:"Suite"),
-				new DataPoint(10, RoomRevCalc("King"), label:"King"),
-				new DataPoint(20, RoomRevCalc("Queen"), label:"Queen"),
-				new DataPoint(30, RoomRevCalc("Full"), label:"Full"),
+				new DataPoint(10, RoomRevCalc("Suite"), label:"Suite"),
+				new DataPoint(20, RoomRevCalc("King"), label:"King"),
+				new DataPoint(30, RoomRevCalc("Queen"), label:"Queen"),
+				new DataPoint(40, RoomRevCalc("Full"), label:"Full"),
+				new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
+      };
+
+      var guestsCountries = MostCommonPlaces();
+
+      List<DataPoint> countryPoints = new List<DataPoint>{
+				new DataPoint(10, RoomRevCalc("Suite"), label:"Suite"),
+				new DataPoint(20, RoomRevCalc("King"), label:"King"),
+				new DataPoint(30, RoomRevCalc("Queen"), label:"Queen"),
+				new DataPoint(40, RoomRevCalc("Full"), label:"Full"),
 				new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
       };
 
@@ -92,23 +102,20 @@ namespace Guestly.Controllers
         return totalGuests;
       }
 
-      // public List<string> MostCommonPlaces()
-      // {
-      //   var stayedGuests = _db.GuestRoom.AsQueryable();
-      //   var guests = _db.Guests.AsQueryable();
-      //   List<string> guestIds = new List<string>();
-        
-      
-
-
-
-
-
-      //     .GroupBy(s=>s)
-      //     .OrderByDescending(g => g.Count())
-      //     .Distinct();
-      //   return mostPopular;
-      // }
+      public List<string> MostCommonPlaces()
+      {
+        var stayedGuests = _db.GuestRoom.AsQueryable();
+        List<string> guestCountry = new List<string>();
+        foreach(GuestRoom stays in stayedGuests)
+        {
+          guestCountry.Add(stays.Guest.Country);
+        }
+        guestCountry
+          .GroupBy(s=>s)
+          .OrderByDescending(g => g.Count())
+          .Distinct();
+        return guestCountry;
+      }
 
     }
 }

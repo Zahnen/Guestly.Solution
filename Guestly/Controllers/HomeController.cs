@@ -25,25 +25,15 @@ namespace Guestly.Controllers
         var viewModel = new MyBabyView();
         viewModel.AllGuests = _db.Guests.ToList();
         viewModel.AllRooms = _db.Rooms.ToList();
-      List<DataPoint> piePoints = new List<DataPoint>{
-				new DataPoint(10, RoomRevCalc("Suite"), label:"Suite"),
-				new DataPoint(20, RoomRevCalc("King"), label:"King"),
-				new DataPoint(30, RoomRevCalc("Queen"), label:"Queen"),
-				new DataPoint(40, RoomRevCalc("Full"), label:"Full"),
-				new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
-      };
+        List<DataPoint> dataPoints = new List<DataPoint>{
+          new DataPoint(10, RoomRevCalc("Suite"), label:"Suite"),
+          new DataPoint(20, RoomRevCalc("King"), label:"King"),
+          new DataPoint(30, RoomRevCalc("Queen"), label:"Queen"),
+          new DataPoint(40, RoomRevCalc("Full"), label:"Full"),
+          new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
+        };
 
-      var guestsCountries = MostCommonPlaces();
-
-      List<DataPoint> countryPoints = new List<DataPoint>{
-				new DataPoint(10, RoomRevCalc("Suite"), label:"Suite"),
-				new DataPoint(20, RoomRevCalc("King"), label:"King"),
-				new DataPoint(30, RoomRevCalc("Queen"), label:"Queen"),
-				new DataPoint(40, RoomRevCalc("Full"), label:"Full"),
-				new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
-      };
-
-			ViewBag.PiePoints = JsonConvert.SerializeObject(piePoints);
+			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
 			ViewBag.TotalRev = PropertyLifeTimeRev();
       ViewBag.TotalNights = PropertyLifeTimeNights();
       ViewBag.TotalGuests = PropertyLifeTimeGuests();
@@ -101,21 +91,5 @@ namespace Guestly.Controllers
         }
         return totalGuests;
       }
-
-      public List<string> MostCommonPlaces()
-      {
-        var stayedGuests = _db.GuestRoom.AsQueryable();
-        List<string> guestCountry = new List<string>();
-        foreach(GuestRoom stays in stayedGuests)
-        {
-          guestCountry.Add(stays.Guest.Country);
-        }
-        guestCountry
-          .GroupBy(s=>s)
-          .OrderByDescending(g => g.Count())
-          .Distinct();
-        return guestCountry;
-      }
-
     }
 }

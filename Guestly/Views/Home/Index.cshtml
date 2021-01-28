@@ -31,7 +31,7 @@ All Rooms = Model.AllRooms  *@
           theme: "light2",
           animationEnabled: true,
           title: {
-            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev).00"
           },
           toolTip:{
             animationEnabled: true,
@@ -71,14 +71,14 @@ All Rooms = Model.AllRooms  *@
         });
         chart1.render();
         chart2.render();
-      }, 3000);
+      }, 1100);
 
       function chartsGroup1(){
         var chartOne = new CanvasJS.Chart("chartContainer1", {
           theme: "light2",
           animationEnabled: true,
           title: {
-            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev)"
+            text: "Revenue Earned: $@Html.Raw(ViewBag.TotalRev).00"
           },
           toolTip:{
             animationEnabled: true,
@@ -105,7 +105,7 @@ All Rooms = Model.AllRooms  *@
             animationEnabled: true,
           },
           subtitles: [
-            { text: "Broken By Bars" }
+            { text: "Broken Down By Bars" }
           ],
           data: [
             {
@@ -203,32 +203,3 @@ All Rooms = Model.AllRooms  *@
         <div id="chartContainer4"></div>
       </div>
     </div>
-    </div>
-@*// <div class="row">
-//   <div class="col-6">
-//     <div class="card" style="width: 18rem;">
-//       <div class="card-header">
-//         <h1>Guests</h1>
-//       </div>
-//       <ul class="list-group list-group-flush">
-//         @foreach (var guest in Model.AllGuests)
-//         {
-//           <li class="list-group-item"><h3>@Html.ActionLink($"{guest.FirstName}{guest.LastName}. LifetimeNights: {guest.LifetimeNights}, Lifetime revenue: {guest.LifetimeRevenue}", "Details", "Guests", new { id = guest.GuestId })</h3></li>
-//         }
-//       </ul>
-//     </div>
-//   </div>
-
-//   <div class="col-6">
-//     <div class="card" style="width: 18rem;">
-//       <div class="card-header">
-//         <h1>Rooms</h1>
-//       </div>
-//       <ul class="list-group list-group-flush">
-//       @foreach (var room in Model.AllRooms)
-//       {
-//         <li class="list-group-item"><h3>@Html.ActionLink($"#{room.RoomNumber}, type: {room.RoomType}, price: {room.Price}", "Details", "Rooms", new { id = room.RoomId } )</h3></li>
-//       }
-//       </ul>
-//     </div>
-//   </div>*@

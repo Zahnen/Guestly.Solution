@@ -74,7 +74,7 @@ namespace Guestly.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(CreateGuestAndStayViewModel guest)
+    public ActionResult Create(CreateGuestAndStayViewModel guest, string dateOfArrival)
     { 
       if(guest.RoomId != 0 && guest.Nights != 0)
       {
@@ -83,7 +83,18 @@ namespace Guestly.Controllers
         var nights = guest.Nights;
         var thisGuest = new Guest(){FirstName = guest.FirstName, LastName = guest.LastName, Email = guest.Email, PhoneNumber = guest.PhoneNumber, City = guest.City, State = guest.State, Country = guest.Country,  LifetimeRevenue = revenue, LifetimeNights = nights};
         _db.Guests.Add(thisGuest);
-        _db.GuestRoom.Add(new GuestRoom(){GuestId = thisGuest.GuestId, RoomId = guest.RoomId, Nights = guest.Nights});
+
+        string[] splitDate = dateOfArrival.Split("-");
+        int year = int.Parse(splitDate[0]);
+        int month = int.Parse(splitDate[1]);
+        int day = int.Parse(splitDate[2]);
+
+        DateTime arriveDate = new DateTime(year, month, day);
+        DateTime checkoutDate = arriveDate.AddDays(nights);
+        string arrive = arriveDate.ToString("d");
+        string checkout = checkoutDate.ToString("d");
+
+        _db.GuestRoom.Add(new GuestRoom(){GuestId = thisGuest.GuestId, RoomId = guest.RoomId, Nights = guest.Nights, ArriveDate = arrive, CheckoutDate = checkout});
         _db.SaveChanges();
         return RedirectToAction("Index");
       }

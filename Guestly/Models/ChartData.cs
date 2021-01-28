@@ -26,4 +26,5 @@ namespace Guestly.Models
 		[DataMember(Name = "label")]
 		public string Label = "";
   }
+
 }

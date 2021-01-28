@@ -5,45 +5,50 @@
 @model Guestly.Models.Room
 <br>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <h1 class="infoTitle">Room @Html.DisplayFor(model => model.RoomNumber)</h1><br>
+    </div>
+</div>
     <hr>
+
+<div class="row">
+  <div class="col-sm-6">
     <h3 class="infoTitle">Room Type: </h3><h6 class="infoBlock">@Html.DisplayFor(model => model.RoomType)</h6><br>
     <h3 class="infoTitle">Price per night: </h3><h6 class="infoBlock">@Html.DisplayFor(model => model.Price)</h6>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+      {
+        <hr>
+        <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-user-edit"></i> @Html.ActionLink("Edit Price", "Edit", new { id = Model.RoomId }, new {@class="text-secondary"})</button>
+        <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-trash-alt"></i> @Html.ActionLink("Delete", "Delete", new { id = Model.RoomId }, new {@class="text-secondary"})</button>
+      }
     <hr>
     @if (Model.RoomType == "Baby")
     {
-      <img hieght="auto" width="400" src="https://www.riverplacehotel.com/images/1700-960/bunkalow-bedroom-riverplace-portland-a3e3b717.jpg" alt="baby size room">
+      <img hieght="auto" width="540" src="https://www.riverplacehotel.com/images/1700-960/bunkalow-bedroom-riverplace-portland-a3e3b717.jpg" alt="baby size room">
     }
     else if (Model.RoomType == "King")
     {
-      <img hieght="auto" width="400" src="https://www.riverplacehotel.com/images/1700-960/kimpton-riverplace-king-suite-3b3c0a44.jpg" alt="king size room">
+      <img hieght="auto" width="540" src="https://www.riverplacehotel.com/images/1700-960/kimpton-riverplace-king-suite-3b3c0a44.jpg" alt="king size room">
     }
     else if (Model.RoomType == "Queen")
     {
-      <img hieght="auto" width="400" src="https://www.riverplacehotel.com/images/1700-960/columbia-bedroom-riverplace-portland-9cb47b1a.jpg" alt="queen size room">
+      <img hieght="auto" width="540" src="https://www.riverplacehotel.com/images/1700-960/columbia-bedroom-riverplace-portland-9cb47b1a.jpg" alt="queen size room">
     }
     else if (Model.RoomType == "Suite")
     {
-      <img hieght="auto" width="400" src="https://www.riverplacehotel.com/images/1700-960/kimpton-riverplace-marina-suite-kitchen-e90511da.jpg" alt="suite size room">
+      <img hieght="auto" width="540" src="https://www.riverplacehotel.com/images/1700-960/kimpton-riverplace-marina-suite-kitchen-e90511da.jpg" alt="suite size room">
     }
     else if (Model.RoomType == "Full")
     {
-      <img hieght="auto" width="400" src="https://www.riverplacehotel.com/images/1700-960/mt-hood-bedroom-riverplace-portland-dc98877f.jpg" alt="full size room">
+      <img hieght="auto" width="540" src="https://www.riverplacehotel.com/images/1700-960/mt-hood-bedroom-riverplace-portland-dc98877f.jpg" alt="full size room">
     }
     else
     {
       <p>Room type does not have an image.</p>
     }
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-      {
-        <hr>
-        <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-user-edit"></i> @Html.ActionLink("Edit Price", "Edit", new { id = Model.RoomId })</button>
-        <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-trash-alt"></i> @Html.ActionLink("Delete", "Delete", new { id = Model.RoomId })</button>
-      }
   </div>
   <div class="col-sm-6">
-    <h1>Stay records:</h1><br>
+    <h3>Stay records:</h3><br>
 
 <table class="table table-hover table-striped">
         <thead class="thead-light">

@@ -15,12 +15,20 @@
             @using(Html.BeginForm())
             {
               @Html.HiddenFor(model => model.RoomId)
-              @Html.HiddenFor(model => model.RoomNumber)
-              @Html.HiddenFor(model => model.RoomType)
-
-              @Html.Label("Room price:")
-              @Html.TextBoxFor(model => model.Price)
-            <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
+              <div class="form-group">
+                @Html.Label("Room Type")
+                @Html.TextBoxFor(model => model.RoomNumber, new {@class="form-control", disabled="disabled"})
+              </div>
+              <div class="form-group">
+                @Html.Label("Room Type")
+                @Html.TextBoxFor(model => model.RoomType, new {@class="form-control", disabled="disabled"})
+              </div>
+              <div class="form-group">
+                @Html.Label("Room price:")
+                @Html.TextBoxFor(model => model.Price, new {@class="form-control", placeholder = "Room Price", required="required"})
+              </div>
+            <button class="btn btn-outline-warning text-secondary btn-block" type="submit">Save</button>
+            @Html.ActionLink("Cancel", "Details", "Rooms", new {id = Model.RoomId}, new{@class="btn btn-outline-warning text-secondary btn-block"})
             }
         </div>
       </div>

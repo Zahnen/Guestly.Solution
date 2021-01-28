@@ -1,16 +1,25 @@
+
 @{
   Layout = "_Layout";
-} 
+}
 
+@using System.Security.Claims
 
-<h1>Account</h1>
-@if(User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated)
 {
-<h3>You are logged in as @User.Identity.Name</h3>
+  <h1>Sign out?</h1>
+  <hr>
+  <p>Hello @User.Identity.Name! You are logged in. Click the button below to log out.</p>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+      <input type="submit" class="btn btn-outline-warning text-secondary" value="Log out" />
+  }
 }
 else
 {
-  <h3>Please login or register</h3>
+  <h1>Login / Register</h1>
+  <hr>
+  <p>Log in to your existing account or register for a new account below.</p>
+  <button type="button" class="btn btn-outline-warning text-secondary">@Html.ActionLink("Login", "Login", null,null, new{@class="text-secondary"})</button>
+  <button type="button" class="btn btn-outline-warning text-secondary">@Html.ActionLink("Register", "Register", null, null, new{@class="text-secondary"})</button>
 }
-@Html.ActionLink("Register", "Register")
-@Html.ActionLink("Log In", "Login")

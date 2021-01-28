@@ -28,7 +28,8 @@
                 @Html.Label("When is the check-in date?")<br>
                 <input type="date" value="2021-01-28" name="dateOfArrival" class="form-control">
               </div>
-              <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
+              <button class="btn btn-outline-warning text-secondary btn-block" type="submit">Save</button>
+              @Html.ActionLink("Cancel", "Details", "Rooms", new {id = Model.RoomId}, new{@class="btn btn-outline-warning text-secondary btn-block"})
             }
         </div>
       </div>

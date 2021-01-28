@@ -53,6 +53,7 @@
           </div>
           <div class="card-footer">
             <input type="submit" value="Save" class="btn btn-outline-warning text-secondary"/>
+            @Html.ActionLink("Cancel", "Details", "Guests", new {id = Model.GuestId}, new{@class="btn btn-outline-warning text-secondary"})
           </div>
     }
     </div>

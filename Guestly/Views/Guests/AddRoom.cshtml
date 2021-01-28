@@ -21,6 +21,9 @@
               @Html.HiddenFor(model => model.Email)
               @Html.HiddenFor(model => model.LifetimeNights)
               @Html.HiddenFor(model => model.LifetimeRevenue)
+              @Html.HiddenFor(model => model.City)
+              @Html.HiddenFor(model => model.State)
+              @Html.HiddenFor(model => model.Country)
               <div class = "form-group">
                 @Html.Label("Select the room number:")
                 @Html.DropDownList("RoomId", (SelectList)ViewBag.RoomId, "Select Room Number", new { @class = "form-control",@required="required" })
@@ -34,7 +37,8 @@
                 <input type="date" value="2021-01-28" name="dateOfArrival" class="form-control">
               </div>
             </div>
-              <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
+              <button class="btn btn-outline-warning text-secondary btn-block" type="submit">Save</button>
+              @Html.ActionLink("Cancel", "Details", "Guests", new {id = Model.GuestId}, new{@class="btn btn-outline-warning text-secondary btn-block"})
           }
         </div>
       </div>

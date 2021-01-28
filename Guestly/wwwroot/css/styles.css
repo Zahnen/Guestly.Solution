@@ -4,8 +4,17 @@
 nav {
   margin-bottom: 3%;
 }
+
+h1 {
+  font-weight: 700;
+}
+
 body {
   font-family: 'Rubik', sans-serif;
+}
+
+table {
+  border-radius:6px;
 }
 
 /* .navbar {
@@ -78,6 +87,4 @@ body {
     margin-right: 10px;
     margin-bottom: 10px;
   }
-
-  
 }

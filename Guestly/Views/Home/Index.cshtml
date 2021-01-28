@@ -5,6 +5,24 @@
 @using Guestly.Models;
 @model Guestly.Models.MyBabyView;
 
+<h1>Welcome to Guestly!</h1>
+<hr />
+  <div class="row">
+    <div class="col-4">
+      <h3 class="title">Lifetime Nights</h3>
+      <h2>@ViewBag.TotalNights</h2>
+    </div>
+    <div class="col-4">
+      <h3 class="title">Total Guests Stayed</h3>
+      <h2>@ViewBag.TotalGuests</h2>
+    </div>
+    <div class="col-4">
+      <h3 class="title">Lifetime Revenue</h3>
+      <h2>$@ViewBag.TotalRev.00</h2>
+    </div>
+  </div>
+  <hr />
+
 @* All Guests = Model.AllGuests
 All Rooms = Model.AllRooms  *@
     <script type="text/javascript">
@@ -26,7 +44,7 @@ All Rooms = Model.AllRooms  *@
               type: "pie",
             startAngle: 160,
             toolTipContent: "<b>{label}</b>: ${y}",
-            dataPoints: @Html.Raw(ViewBag.DataPoints)
+            dataPoints: @Html.Raw(ViewBag.PiePoints)
           }
           ]
         });

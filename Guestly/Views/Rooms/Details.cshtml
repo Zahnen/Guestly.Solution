@@ -38,7 +38,7 @@
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
       {
         <hr>
-        <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-user-edit"></i> @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId })</button>
+        <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-user-edit"></i> @Html.ActionLink("Edit Price", "Edit", new { id = Model.RoomId })</button>
         <button type="button" class="btn btn-outline-warning text-secondary"><i class="fas fa-trash-alt"></i> @Html.ActionLink("Delete", "Delete", new { id = Model.RoomId })</button>
       }
   </div>

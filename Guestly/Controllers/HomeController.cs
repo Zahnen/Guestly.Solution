@@ -25,7 +25,7 @@ namespace Guestly.Controllers
         var viewModel = new MyBabyView();
         viewModel.AllGuests = _db.Guests.ToList();
         viewModel.AllRooms = _db.Rooms.ToList();
-      List<DataPoint> dataPoints = new List<DataPoint>{
+      List<DataPoint> piePoints = new List<DataPoint>{
 				new DataPoint(40, RoomRevCalc("Suite"), label:"Suite"),
 				new DataPoint(10, RoomRevCalc("King"), label:"King"),
 				new DataPoint(20, RoomRevCalc("Queen"), label:"Queen"),
@@ -33,8 +33,11 @@ namespace Guestly.Controllers
 				new DataPoint(50, RoomRevCalc("Baby"), label:"Baby")
       };
 
-			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+			ViewBag.PiePoints = JsonConvert.SerializeObject(piePoints);
 			ViewBag.TotalRev = PropertyLifeTimeRev();
+      ViewBag.TotalNights = PropertyLifeTimeNights();
+      ViewBag.TotalGuests = PropertyLifeTimeGuests();
+
         return View(viewModel);
       }
       
@@ -67,5 +70,45 @@ namespace Guestly.Controllers
         }
         return rev;
       }
+
+      public int PropertyLifeTimeNights()
+      {
+        var guestRoomList = _db.GuestRoom.ToList();
+        int totalNights = 0;
+        foreach(GuestRoom guestRoom in guestRoomList)
+        {
+          totalNights += guestRoom.Nights;
+        }
+        return totalNights;
+      }
+      public int PropertyLifeTimeGuests()
+      {
+        var guestList = _db.Guests.ToList();
+        int totalGuests = 0;
+        foreach(Guest guest in guestList)
+        {
+          totalGuests += 1;
+        }
+        return totalGuests;
+      }
+
+      // public List<string> MostCommonPlaces()
+      // {
+      //   var stayedGuests = _db.GuestRoom.AsQueryable();
+      //   var guests = _db.Guests.AsQueryable();
+      //   List<string> guestIds = new List<string>();
+        
+      
+
+
+
+
+
+      //     .GroupBy(s=>s)
+      //     .OrderByDescending(g => g.Count())
+      //     .Distinct();
+      //   return mostPopular;
+      // }
+
     }
 }

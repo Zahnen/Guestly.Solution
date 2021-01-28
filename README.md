@@ -68,6 +68,8 @@ Guestly is a customer relationship management tool designed for the hospitality 
 
 13. exporting database to excel
 
+-guests sorted by top countries, states, cities, etc. in state vs out of state
+-
 
 
 # 🧑‍💻 Contributers

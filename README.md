@@ -20,57 +20,63 @@
 </p>
 
 <p align="center">
-  <small>Last Updated: January 27th, 2021</small>
+  <small>Last Updated: January 28th, 2021</small>
 </p>
 
 # ℹ️ Description
-Guestly is a customer relationship management tool designed for the hospitality industry. This app allows hotel staff to manage current guest stays, track revenue performance, and sort through historical guest and reservation data. Guestly makes it easy to create a personalized database for your hotel's portfolio? Queryable database by lifetime revenue, life time nights stayed, yada, and yada. Easy to create Staff roles for employees to use. As an admin, see important historical data in super sick and at-a-glance type graphs.  
+Guestly is a customer relationship management tool designed for the hospitality industry. Guestly allows hotel staff to manage records of guest stays, track revenue performance, and sort through historical guest and reservation data. It features a highly queryable database of guest information that allows properties to target sets of guests who may be interested in specific email campaigns. Developed to boost the efficacy of marketing efforts, Guestly offers relevance and engagement with its users' target audience.
 
+Guestly was built collaboratively in a team of 5 developers while studying at Epicodus. Guestly makes use of primarily C#, ASP.NET MVC, and MySQL databases.
 
-## MVP User Stories?
+# 📸 Demonstration
+
+<img src="https://s2.gifyu.com/images/recording27d055e818848817.gif" alt="gif of page">
+
+## 🎯 MVP User Stories / Stretch Goal
+
+<details>
+  <summary>Expand User Stories and Stretch Goals</summary>
+
 ### Have a queryable database of guests with full CRUD funcationality.
 
-~~1. As a hotel employee, I need to be able to see a list of all guests that have stayed at my hotel.~~
+1. As a hotel employee, I need to be able to see a list of all guests that have stayed at my hotel.~
 
-~~2. As a hotel employee, I need to be able to see a record of which rooms a guest has stayed in. (I.E. Sarah Johnson stayed in room 207, room 319, and room 500.)~~
+2. As a hotel employee, I need to be able to see a record of which rooms a guest has stayed in. (I.E. Sarah Johnson stayed in room 207, room 319, and room 500.)
 
-~~3. As a hotel employee, I need to be able to track the revenue earned from an individual guest.~~
+3. As a hotel employee, I need to be able to see a record of which guests stayed in which room. (I.E. in room 206, Sarah Johnson, Peter Jackson, and Jenny Calendar stayed here.)
 
-~~4. As a hotel employee, I need to be able to search/query my list of guests in order to search by revenue earned, most nights stayed, etc.~~
+4. As a hotel employee, I need to be able to track the revenue earned from an individual guest.
 
-~~5. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info can be viewed.~~
+5. As a hotel employee, I need to be able to search/query my list of guests in order to search by revenue earned, most nights stayed, etc.
+
+6. As a hotel employee, I need to be able to see a details page of each individual guest, where information such as contact info and stay history can be viewed.
 
 ## Stretch Goals?
 
-1. As a hotel employee, I would like to be able to see a details page for hotel rooms and properties (to include a list of guests that have stayed in them).
+✅  JS front end - adding interactivity with nav bar, etc.
 
-2. As a hotel employee, I would like if revenue tracking was presented in an easy-to-digest interface (charts, graphs, etc).
+✅  Add extra search parameters to refine queries made by search bar.
 
-3. User Roles - Admin can message application users. [define more roles?] harcode user roles?
+✅  Handle Identity Errors.
 
-~~4. JS front end - adding interactivity with nav bar, etc.~~
+✅  Sticky nav bar.
 
-~~5. Handle Identity Errors~~
+✅  Support links at bottom of page(s) - github link, email link.
 
-~~6. Sticky search/nav bar~~
+✅  Sort database with table links.
 
-~~7. Support links at bottom of page(s) - github link, email link~~
+✅  Add DateTime data for guest check-in check-out dates.
 
-~~8. Sort database with table links~~
+✅  Show Google map search based on guest data.
 
-9. Add more properties to Guest class, and update seed data
+✅  As a hotel manager, I would like if revenue tracking was presented in an easy-to-digest and dynamically updated chart and/or graph.
 
-10. Choose what charts and data to display on splash page
+* As hotel management, I need to be able to manage different hotel properties, each containing their respective guests and rooms.
 
-11. Add dates to guest visits
+* As hotel management, I need to be able to be able to send messages and requests to staff members.
 
-12. DEPLOY!
 
-13. exporting database to excel
-
--guests sorted by top countries, states, cities, etc. in state vs out of state
--
-
+</details>
 
 # 🧑‍💻 Contributers
 
@@ -78,34 +84,39 @@ Guestly is a customer relationship management tool designed for the hospitality 
 |------|----------------|
 | [Ben McFarland](https://www.linkedin.com/in/benjamin-mcf/) | [Harzulu](https://github.com/harzulu)|
 | [Kaila Sprague McRae](https://www.linkedin.com/in/kaila-sprague-mcrae/) | [kaila-spraguemcrae](https://github.com/kaila-spraguemcrae) |
-| [Max Brockbank]() | [MaxBrockbank](https://github.com/MaxBrockbank) |
-| [Zahnen Garner]() | [Zahnen](https://github.com/Zahnen) |
+| [Max Brockbank](https://www.linkedin.com/in/max-p-brockbank/) | [MaxBrockbank](https://github.com/MaxBrockbank) |
+| [Zahnen Garner](https://www.linkedin.com/in/zahnen/) | [Zahnen](https://github.com/Zahnen) |
 | [Taylor Delph](https://www.linkedin.com/in/taylordelph/) | [Taylulz](https://github.com/taylulz) |
 
 # ⚙️ Technologies Used
-
-<details>
-  <summary>Expand Tech/tools</summary>
 
 * <a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a>
 * <a href="https://github.com/">Git/GitHub</a>
 * <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">C#</a>
 * <a href="https://dotnet.microsoft.com/download">.NET Core</a>
-* <a href="https://repl.it/languages/csharp">REPL</a>
 * <a href="https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started">ASP.NET MVC</a>
 * <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">CSS</a>
 * <a href="https://getbootstrap.com/">Bootstrap</a>
 * <a href="https://docs.microsoft.com/en-us/ef/core/">EF Core</a>
 * <a href="https://www.mysql.com/">MySQL/My SQL Workbench</a>
-
-</details>
+* <a href="https://canvasjs.com/">CanvasJS</a>
+* <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-5.0&tabs=visual-studio">Identity</a>
+* <a href="https://jquery.com/">jQuery</a>
 
 # 💾 Installation Requirements
 
-## For Both  Mac & Windows systems
+## For Both Mac & Windows systems
 
-* Once you have Git installed on your computer, go to <a href="">this GitHub repository</a>, click the "Fork" button in the upper right hand corner of the page, and clone this application with the following command:
-<br> `git clone [GITHUB]`.
+#### To Clone:
+- Open your preferred command line program.
+- Navigate to the location or directory you'd like the project directory to be created in. (e.g., "cd Desktop" if you'd like to clone the project to your desktop)
+- Enter the command "$ git clone https://github.com/Zahnen/Guestly.Solution" in your command line.
+
+#### To Download:
+- Navigate to the [project repository](https://github.com/Zahnen/Guestly.Solution) in your browser.
+- Click the green "Code" button toward the top right of the page.
+- Click "Download ZIP" and extract the files.
+- Open the newly-downloaded project in your preferred code editor.
 
 ## 📁 Installing C#, .NET, dotnet script, & MySQL
 
@@ -129,12 +140,14 @@ Guestly is a customer relationship management tool designed for the hospitality 
 
 # 🖥️ Opening the Project on your Local System
 
-* Once the project has been cloned to your computer and you have all the necessary items on your local computer, open the project in the application of your choice (<a href="https://code.visualstudio.com/">Visual Code Studio</a> was used and is recommended by the application builder)
+Once the project has been cloned and you have all the necessary items on your local computer, open the project in the application of your choice (<a href="https://code.visualstudio.com/">Visual Code Studio</a> was used and is recommended by the application builder)
 
 ### AppSettings.json File
 
-You will need to create an `appsettings.json` file in the `Guestly` folder. <br>
-Once you have the file made, put in this code: <br>
+* Create an `appsettings.json` file in the `Guestly` folder and paste in the code snippet below.
+  * Replace `PASSWORD` with the password to your server created for this project
+  * Replace `DATABASE_NAME` with the name of your database
+
 ```
 {
     "Logging": {
@@ -148,15 +161,36 @@ Once you have the file made, put in this code: <br>
     }
 }
 ```
-**Make sure to have a MySQL server up and running on your machine on port 3306** <br>
-**Replace `PASSWORD` with the password to your server created for this project**
-**Replace `DATABASE_NAME` with the name of your database**
 
 ### MySQL Database Setup
-
-* First, using your terminal or command line, navgate to the AnimalShelter folder in AnimalShelter.Solution: `/Guestly.Solution/Guestly`.
+**Make sure to have a MySQL server running on your machine on port 3306** <br>
+* Using your terminal or command line, navigate to the Guestly folder in Guestly.Solution: `/Guestly.Solution/Guestly`.
 * Next, run the command: `dotnet ef database update`.
 * You should have your database created for this project.
+
+### Run the project:
+
+- Once the project is cloned and the MySQL database is established, use your preferred command line program to navigate to the directory titled "Guestly" within the root directory created when cloning the project.
+- To run the console application, enter "dotnet build" in your command line while still within the "Guestly" directory. Follow this command with "dotnet run"
+- Your command line will open a server (likely "http://localhost:5000/"). Navigate to this URL in your browser to view the project.
+
+### Setting up User Roles and granting "Admin" permissions
+
+Once you open the project in your code editor navigate to 'Guestly/Contollers/AdministrationContoroller' and comment out `[Authorize(Roles = "Admin")]` which is under the namespace.
+
+After this you will be able to do the following steps:
+
+1. Navigate to "Register" and fill out the form.
+2. Click "Log in" and fill out the form.
+3. In the url navigate to 'localhost:5000/administration/listroles'.
+4. Click "Create Role" and name the new role *"Admin"*.
+5. Next to add your account to the "Admin" role, click "Edit" and then click "Add or Remove Users".
+6. Check the checkbox next to your user email and then click "Update"
+7. To have to the role update your permission Logout and then Log back into your account. You should now see "Manage User Roles" and "ADMIN" in the navbar. 
+
+At this point you should return to the code editor and uncomment or add `[Authorize(Roles = "Admin")]` back. 
+
+*To have full access to the web application you will need to add the User Role "Admin" to your account.
 
 # ☎️ Support / Contact Details
 
@@ -166,15 +200,15 @@ Once you have the file made, put in this code: <br>
 * [Zahnen Garner](mailto:zahnen@gmail.com)
 * [Taylor Delph](mailto:taylulzcode@gmail.com)
 
-# 🪲 Bugs / Issues
+# 🐛 Bugs / Issues
 
 | Date | Error | Handled | Solution |
 | :------------- | :------------- | :------------- | :------------- |
-| 01.25.2021 | "The entity type 'IdentityUserLogin<string>' requires a primary key to be defined." | ✅  | add `base.OnModelCreating(builder)` to GuestlyContext.cs |
+| 01.25.2021 | "The entity type 'IdentityUserLogin`<string>`' requires a primary key to be defined." | ✅  | add `base.OnModelCreating(builder)` to GuestlyContext.cs |
 | 01.25.2021 | "error CS0664: Literal of type double cannot be implicitly converted to type 'float'; use an 'F' suffix to create a literal of this type" | ✅  | add "f" to float data, ie: `125.00f`|
 | 01.26.2021 | login, register and create roles do not show errors | ✅  | add `@Html.ValidationSummary(false,"",new { @class = "text-danger"})` to Views and add `ModelState.AddModelError(string.Empty, error.Description)` to Controllers |
-| 01.26.2021 | when setting nav bar's position to "fixed" in css, nav covers page contents | ✅  | format through bootstrap by adding "sticky-top" to <nav> class`|
-| 01.27.2021 | sorting a table with jQuery is hot garbage | ✅ | add a <span class="data"> to <td> column, modify function to sort by span class instead of td tag |
+| 01.26.2021 | when setting nav bar's position to "fixed" in css, nav covers page contents | ✅  | format through bootstrap by adding "sticky-top" to `<nav>` class`|
+| 01.27.2021 | sorting a table with jQuery is hot garbage | ✅ | add a `<span class="data">` to `<td>` column, modify function to sort by span class instead of td tag |
 
 
 # ©️ License & Copyright

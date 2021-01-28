@@ -23,6 +23,9 @@
               @Html.Label("How many nights did the guest stay?")
               @Html.TextBox("newNights", "", new{@class="form-control", placeholder = "Nights", required = "required"})
 
+              @Html.Label("When is the check-in date?")<br>
+              <input type="date" value="2021-01-28" name="dateOfArrival">
+
               <button class="btn btn-outline-warning text-secondary btn-block text-uppercase" type="submit">Save</button>
             }
         </div>

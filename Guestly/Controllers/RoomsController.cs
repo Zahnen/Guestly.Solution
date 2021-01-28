@@ -75,20 +75,30 @@ namespace Guestly.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddGuest(Room room, int GuestId, int newNights)
+    public ActionResult AddGuest(Room room, int GuestId, int newNights, string dateOfArrival)
     {
       var thisGuest = _db.Guests.FirstOrDefault(guest => guest.GuestId == GuestId);
       var thisRevenue = newNights * room.Price;
       thisGuest.LifetimeRevenue += thisRevenue;
       thisGuest.LifetimeNights += newNights;
       _db.Entry(thisGuest).State = EntityState.Modified;
+
+      string[] splitDate = dateOfArrival.Split("-");
+      int year = int.Parse(splitDate[0]);
+      int month = int.Parse(splitDate[1]);
+      int day = int.Parse(splitDate[2]);
+
+      DateTime arriveDate = new DateTime(year, month, day);
+      DateTime checkoutDate = arriveDate.AddDays(newNights);
+      string arrive = arriveDate.ToString("d");
+      string checkout = checkoutDate.ToString("d");
       if (GuestId != 0)
       {
         var returnedJoin = _db.GuestRoom
           .Any(join => join.GuestId == GuestId && join.RoomId == room.RoomId);
           if(!returnedJoin)
           {
-            _db.GuestRoom.Add(new GuestRoom() { GuestId = GuestId, RoomId = room.RoomId });
+            _db.GuestRoom.Add(new GuestRoom() { GuestId = GuestId, RoomId = room.RoomId, Nights = newNights, ArriveDate = arrive, CheckoutDate = checkout });
           }
       }
       _db.SaveChanges();

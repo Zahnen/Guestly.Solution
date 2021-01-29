@@ -75,6 +75,8 @@ Guestly was built collaboratively in a team of 5 developers while studying at Ep
 
 * As hotel management, I need to be able to be able to send messages and requests to staff members.
 
+* As hotel management, I need to be able to be able to send email campaigns to targeted customers.
+
 
 </details>
 
